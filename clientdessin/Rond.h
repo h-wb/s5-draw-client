@@ -5,9 +5,9 @@
  * 
  * 
  * */
-class Rond :public Forme
+class Rond : public Forme
 {
-double xCentre, yCentre, rayon;
+double _xCentre, _yCentre, _rayon;
 public:
 /**
  * @param xCentre
@@ -16,7 +16,14 @@ public:
  */
 Rond( const double xCentre,  const double yCentre,  const double rayon);
 
-void dessiner1( ClientDessin & clientDessin) const;
+void dessiner(VisiteurDessiner * visiteurDessiner) const;
 
 operator string() const;
+
+double getxCentre() const;
+double getyCentre() const;
+double getRayon() const;
+void setxCentre(double);
+void setyCentre(double);
+void setRayon(double);
 };

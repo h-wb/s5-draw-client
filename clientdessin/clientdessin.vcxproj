@@ -65,7 +65,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ClientDessin.cpp" />
+    <ClCompile Include="DessinerJava.cpp" />
     <ClCompile Include="Croix.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme.cpp" />
@@ -74,14 +74,17 @@
     <ClCompile Include="TestBidon.cpp" />
     <ClCompile Include="TestClientDessin1.cpp" />
     <ClCompile Include="TestClientDessin2.cpp" />
+    <ClCompile Include="TestDessin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ClientDessin.h" />
+    <ClInclude Include="DessinerJava.h" />
     <ClInclude Include="Croix.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="Forme.h" />
     <ClInclude Include="MaWinsock.h" />
     <ClInclude Include="Rond.h" />
+    <ClInclude Include="TestDessin.h" />
+    <ClInclude Include="VisiteurDessiner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

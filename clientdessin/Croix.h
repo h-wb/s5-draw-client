@@ -7,8 +7,9 @@ cf. classe JAVA de même nom
 */
 class Croix: public Forme
 {
-double gauche, haut,droit,bas;
+double _gauche, _haut, _droit, _bas;
 public:
+							
 
 /**
  * @param gauche
@@ -18,7 +19,16 @@ public:
  */
 Croix( const double gauche, const double haut, const double droit, const double bas);
 
-void dessiner1( ClientDessin & clientDessin) const;
+
+void dessiner(VisiteurDessiner * visiteurDessiner) const;
 operator string() const;
+double getGauche() const;
+double getHaut() const;
+double getDroit() const;
+double getBas() const;
+void setGauche(double);
+void setHaut(double);
+void setDroit(double);
+void setBas(double);
 };
 

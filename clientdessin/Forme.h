@@ -2,9 +2,10 @@
 
 #include <iostream>
 #include <string>
-#include "ClientDessin.h"
 
 using namespace std;
+
+class VisiteurDessiner;
 
 /**
  * Hiérarchie simplifiée de formes en 2D
@@ -16,7 +17,8 @@ public:
 
 void dessiner() const;
 
-virtual  void dessiner1( ClientDessin & clientDessin) const = 0;
+virtual  void dessiner( VisiteurDessiner * visiteurDessiner) const = 0;
+
 
 virtual operator string () const = 0;
 

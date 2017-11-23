@@ -1,5 +1,6 @@
 
 #include <sstream>
+#include "VisiteurDessiner.h"
 #include "Croix.h"
 
 /**
@@ -8,20 +9,11 @@
  * @param droit
  * @param bas
  */
-Croix::Croix( const double gauche, const double haut, const double droit, const double bas) : gauche(gauche), haut(haut), droit(droit), bas(bas) {}
+Croix::Croix( const double gauche, const double haut, const double droit, const double bas) : _gauche(gauche), _haut(haut), _droit(droit), _bas(bas) {}
 
-
-
-void Croix::dessiner1( ClientDessin & clientDessin) const
+void Croix::dessiner( VisiteurDessiner * visiteurDessiner) const
 {
-int marge, largeur, hauteur;
-largeur = (int)(droit - gauche);
-hauteur = (int)(bas - haut);
-marge = 50;
-clientDessin.ouvreFenetreGraphique("croix client C++", (int)gauche - marge, (int)haut - marge, largeur + 2*marge, hauteur + 2*marge);
-
-clientDessin.traceSegment(marge,         marge, marge+largeur, marge+hauteur);
-clientDessin.traceSegment(marge, marge+hauteur, marge+largeur,         marge);
+	return visiteurDessiner->visite(this);
 
 }
 
@@ -29,7 +21,47 @@ Croix::operator string() const
 {
 ostringstream oss;
 
-oss << "Croix : "<< "gauche = "<< gauche << ", haut = "<< haut << ", droit = " << droit <<  ", bas = " << bas;
+oss << "Croix : "<< "gauche = "<< _gauche << ", haut = "<< _haut << ", droit = " << _droit <<  ", bas = " << _bas;
 
 return oss.str();
+}
+
+double Croix::getGauche() const
+{
+	return _gauche;
+}
+
+double Croix::getHaut() const
+{
+	return _haut;
+}
+
+double Croix::getDroit() const
+{
+	return _droit;
+}
+
+double Croix::getBas() const
+{
+	return _bas;
+}
+
+void Croix::setGauche(double gauche)
+{
+	_gauche = gauche;
+}
+
+void Croix::setHaut(double haut)
+{
+	_haut = haut;
+}
+
+void Croix::setDroit(double droit)
+{
+	_droit = droit;
+}
+
+void Croix::setBas(double bas)
+{
+	_bas = bas;
 }

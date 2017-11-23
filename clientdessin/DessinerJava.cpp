@@ -11,7 +11,7 @@
 #include <sstream>
 #include "Erreur.h"
 #include "MaWinsock.h"
-#include "ClientDessin.h"
+#include "DessinerJava.h"
 
 using namespace std;
 
@@ -29,7 +29,13 @@ using namespace std;
  *
  * */
 
-ClientDessin::ClientDessin( const string & adresseServeurDessin, const int portServeurDessin)
+
+
+DessinerJava::DessinerJava()
+{
+}
+
+DessinerJava::DessinerJava( const string & adresseServeurDessin, const int portServeurDessin)
 {
 MaWinsock::getInstance();	// initialisation de la DLL : effectuée une seule fois
 
@@ -71,7 +77,7 @@ if (r == SOCKET_ERROR)
 cout << "connexion au serveur de dessin réussie" << endl;
 }
 
-ClientDessin::~ClientDessin()
+DessinerJava::~DessinerJava()
 {
 int r = shutdown(sock,SD_BOTH);							// on coupe la connexion pour l'envoi et la réception
 													// renvoie une valeur non nulle en cas d'échec. Le code d'erreur peut être obtenu par un appel à WSAGetLastError()
@@ -89,7 +95,7 @@ cout << "arrêt normal du client" << endl;
 // il y a une GROSSE redondance de code (ou autrement dit un GROS copié-collé pourri) sur les 3 méthodes suivantes : elle doit être éliminée !!!!!!!
 // cf. classe JAVA ClientDessin - méthode encoder()
 
-void ClientDessin::ouvreFenetreGraphique(const string & titre, const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
+void DessinerJava::ouvreFenetreGraphique(const string & titre, const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
 {
 ostringstream oss;
 
@@ -112,7 +118,7 @@ cout << "requête d'ouverture de fenêtre graphique envoyée" << endl;
     envoie sur une seule ligne les 5 paramètres au serveur.
  * Les 5 paramètres drawLine, ... , y2 sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
  *  * */
-void ClientDessin::traceSegment( const int x1, const int y1, const int x2, const int y2)
+void DessinerJava::traceSegment( const int x1, const int y1, const int x2, const int y2)
 {
 ostringstream oss;
 
@@ -135,7 +141,7 @@ cout << "requête de tracé de segment envoyée" << endl;
 envoie sur une seule ligne les 5 paramètres au serveur.
 * Les 5 paramètres fillOval, ... , hauteur sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
 *  * */
-void ClientDessin::remplitEllipse( const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
+void DessinerJava::remplitEllipse( const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
 {
 ostringstream oss;
 
@@ -152,4 +158,33 @@ if (r == SOCKET_ERROR)
    throw Erreur("échec de l'envoi de la requête de tracé de segment");
 
 cout << "requête de tracé de segment envoyée" << endl;
+}
+
+void DessinerJava::visite(const Croix * forme) const
+{
+	DessinerJava c("127.0.0.1", 8091);
+	int marge, largeur, hauteur;
+
+	largeur = (int)(forme->getDroit() - forme->getGauche());
+	hauteur = (int)(forme->getBas() - forme->getHaut());
+	marge = 50;
+	c.ouvreFenetreGraphique("croix client C++", (int)forme->getGauche() - marge, (int)forme->getHaut() - marge, largeur + 2 * marge, hauteur + 2 * marge);
+
+	c.traceSegment(marge, marge, marge + largeur, marge + hauteur);
+	c.traceSegment(marge, marge + hauteur, marge + largeur, marge);
+}
+
+void DessinerJava::visite(const Rond * forme) const
+{
+	DessinerJava c("127.0.0.1", 8091);
+	int marge = 50;
+	int largeur, hauteur;
+	largeur = hauteur = (int)(2 * forme->getRayon());
+	int bordGauche, bordHaut;
+
+	bordGauche = (int)(forme->getxCentre() - forme->getRayon());
+	bordHaut = (int)(forme->getyCentre() - forme->getRayon());
+	c.ouvreFenetreGraphique("rond client C++", bordGauche - marge, bordHaut - marge, largeur + 2 * marge, hauteur + 2 * marge);
+
+	c.remplitEllipse(marge, marge, largeur, hauteur);
 }

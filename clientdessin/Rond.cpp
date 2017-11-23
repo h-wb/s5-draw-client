@@ -1,4 +1,5 @@
 #include <sstream>
+#include "VisiteurDessiner.h"
 #include "Rond.h"
 
 /**
@@ -6,22 +7,12 @@
  * @param yCentre
  * @param rayon
  */
-Rond::Rond( const double xCentre, const double yCentre, const double rayon) : xCentre (xCentre), yCentre (yCentre), rayon (rayon) {}
+Rond::Rond( const double xCentre, const double yCentre, const double rayon) : _xCentre (xCentre), _yCentre (yCentre), _rayon (rayon) {}
 
 
-void Rond::dessiner1( ClientDessin & clientDessin) const
+void Rond::dessiner( VisiteurDessiner * visiteurDessiner) const
 {
-
-int marge = 50;
-int largeur, hauteur;
-largeur = hauteur = (int)(2*rayon);
-int bordGauche, bordHaut;
-
-bordGauche = (int)(xCentre - rayon);
-bordHaut   = (int)(yCentre - rayon);
-clientDessin.ouvreFenetreGraphique("rond client C++", bordGauche-marge, bordHaut-marge, largeur+2*marge, hauteur+2*marge);
-
-clientDessin.remplitEllipse(marge, marge, largeur, hauteur);
+	return visiteurDessiner->visite(this);
 
 }
 
@@ -29,7 +20,37 @@ Rond::operator string() const
 {
 ostringstream oss;
 
-oss << "Rond : "<<"xCentre = " << xCentre << ", yCentre = " << yCentre <<", rayon = " << rayon;
+oss << "Rond : "<<"xCentre = " << _xCentre << ", yCentre = " << _yCentre <<", rayon = " << _rayon;
 
 return oss.str();
+}
+
+double Rond::getxCentre() const
+{
+	return _xCentre;
+}
+
+double Rond::getyCentre() const
+{
+	return _yCentre;
+}
+
+double Rond::getRayon() const
+{
+	return _rayon;
+}
+
+void Rond::setxCentre(double xCentre)
+{
+	_xCentre = xCentre;
+}
+
+void Rond::setyCentre(double yCentre)
+{
+	_yCentre = yCentre;
+}
+
+void Rond::setRayon(double rayon)
+{
+	_rayon = rayon;
 }

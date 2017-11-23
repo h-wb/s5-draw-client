@@ -3,15 +3,16 @@
 #include "Erreur.h"
 #include "Forme.h"
 
+
 using namespace std;
 	
 void Forme::dessiner() const
 {
 try
 {
-ClientDessin clientDessin("127.0.0.1",8091);
+/*ClientDessin clientDessin("127.0.0.1",8091);
 
-dessiner1(clientDessin);
+accepte(clientDessin);*/
 }
 catch (Erreur e)
 	{

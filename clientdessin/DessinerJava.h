@@ -10,6 +10,7 @@
 #include <WinSock2.h>
 #include <string>
 #include <string.h>
+#include "VisiteurDessiner.h"
 
 using namespace std;
 
@@ -26,14 +27,15 @@ using namespace std;
  * Sur la ligne, 2 paramètres consécutifs sont séparés par ", ".
  *
  * */
-class ClientDessin
+class DessinerJava : public VisiteurDessiner
 {
 SOCKET sock;  // informations concernant le socket à créer : famille d'adresses acceptées, mode connecté ou non, protocole 
 SOCKADDR_IN sockaddr; // informations concernant le serveur avec lequel on va communiquer
 
 public:
-ClientDessin( const string & adresseServeurDessin, const int portServeurDessin);
-~ClientDessin();
+DessinerJava();
+DessinerJava( const string & adresseServeurDessin, const int portServeurDessin);
+~DessinerJava();
 
 void ouvreFenetreGraphique(const string & titre, const int bordGauche, const int bordHaut, const int largeur, const int hauteur);
 
@@ -48,6 +50,11 @@ envoie sur une seule ligne les 5 paramètres au serveur.
 * Les 5 paramètres fillOval, ... , hauteur sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
 *  * */
 void remplitEllipse( const int bordGauche, const int bordHaut, const int largeur, const int hauteur);
+
+void visite(const Croix * forme) const;
+
+void visite(const Rond * forme) const;
+
 };
 
 
