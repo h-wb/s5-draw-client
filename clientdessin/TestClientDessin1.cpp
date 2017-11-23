@@ -33,7 +33,7 @@ string titre = "fenêtre ouverte par un client C++ distant";
 int bordGauche = 300;
 int bordHaut = 400;
 int largeur = 200;
-int hauteur = 100;
+int hauteur = 400;
 
 clientDessin.ouvreFenetreGraphique( titre, bordGauche, bordHaut, largeur, hauteur);
 
