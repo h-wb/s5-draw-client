@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main(void) //Pour tester le main, le rename en main() et remplacer main() de TestClientDessin2 en main8() par exemple
+int main8(void) //Pour tester le main, le rename en main() et remplacer main() de TestClientDessin2 en main8() par exemple
 {
 	//1er appel de Instance: on alloue le pointeur SoundManager::m_instance
 	Singleton& ptr1 = Singleton::getInstance();

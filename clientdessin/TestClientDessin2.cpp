@@ -14,7 +14,7 @@
 
 using namespace std;
 
-int main8()
+int main()
 {
 try
 {
