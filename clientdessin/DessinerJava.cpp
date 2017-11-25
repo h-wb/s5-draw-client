@@ -10,7 +10,7 @@
 #include <string>
 #include <sstream>
 #include "Erreur.h"
-#include "MaWinsock.h"
+#include "Singleton.h"
 #include "DessinerJava.h"
 
 using namespace std;
@@ -37,7 +37,7 @@ DessinerJava::DessinerJava()
 
 DessinerJava::DessinerJava( const string & adresseServeurDessin, const int portServeurDessin)
 {
-MaWinsock::getInstance();	// initialisation de la DLL : effectuée une seule fois
+	Singleton::getInstance();	// initialisation de la DLL : effectuée une seule fois
 
 
 //---------------------- création socket -------------------------------------------------

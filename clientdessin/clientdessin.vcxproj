@@ -69,8 +69,10 @@
     <ClCompile Include="Croix.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme.cpp" />
+    <ClCompile Include="MainSingleton.cpp" />
     <ClCompile Include="MaWinsock.cpp" />
     <ClCompile Include="Rond.cpp" />
+    <ClCompile Include="Singleton.cpp" />
     <ClCompile Include="TestBidon.cpp" />
     <ClCompile Include="TestClientDessin1.cpp" />
     <ClCompile Include="TestClientDessin2.cpp" />
@@ -83,6 +85,7 @@
     <ClInclude Include="Forme.h" />
     <ClInclude Include="MaWinsock.h" />
     <ClInclude Include="Rond.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="TestDessin.h" />
     <ClInclude Include="VisiteurDessiner.h" />
   </ItemGroup>
