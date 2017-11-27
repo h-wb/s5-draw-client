@@ -55,6 +55,8 @@ void visite(const Croix * forme) const;
 
 void visite(const Rond * forme) const;
 
+void visite(const Segment * forme) const;
+
 };
 
 
