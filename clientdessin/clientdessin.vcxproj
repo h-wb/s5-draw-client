@@ -70,7 +70,6 @@
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme.cpp" />
     <ClCompile Include="MainSingleton.cpp" />
-    <ClCompile Include="MaWinsock.cpp" />
     <ClCompile Include="Rond.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Singleton.cpp" />
@@ -78,17 +77,19 @@
     <ClCompile Include="TestClientDessin1.cpp" />
     <ClCompile Include="TestClientDessin2.cpp" />
     <ClCompile Include="TestDessin.cpp" />
+    <ClCompile Include="TestMainVecteur.cpp" />
+    <ClCompile Include="Vecteur2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DessinerJava.h" />
     <ClInclude Include="Croix.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="Forme.h" />
-    <ClInclude Include="MaWinsock.h" />
     <ClInclude Include="Rond.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="TestDessin.h" />
+    <ClInclude Include="Vecteur2D.h" />
     <ClInclude Include="VisiteurDessiner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
