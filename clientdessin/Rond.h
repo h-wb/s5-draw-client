@@ -1,4 +1,5 @@
 #pragma once
+#include "Vecteur2D.h"
 #include "Forme.h"
 /**
  * Représente un cercle de centre (xCentre, yCentre) et de rayon "rayon"
@@ -7,23 +8,25 @@
  * */
 class Rond : public Forme
 {
-double _xCentre, _yCentre, _rayon;
+private :
+	Vecteur2D _centre;
+	double _rayon;
 public:
 /**
  * @param xCentre
  * @param yCentre
  * @param rayon
  */
-Rond( const double xCentre,  const double yCentre,  const double rayon);
+Rond(int couleur, Vecteur2D centre, double rayon);
+Rond(Rond &r);
 
 void dessiner(VisiteurDessiner * visiteurDessiner) const;
 
 operator string() const;
 
-double getxCentre() const;
-double getyCentre() const;
+
+Vecteur2D getCentre() const;
+void setCentre(Vecteur2D v);
 double getRayon() const;
-void setxCentre(double);
-void setyCentre(double);
 void setRayon(double);
 };

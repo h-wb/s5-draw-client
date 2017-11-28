@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{234893E1-6189-488A-BB40-250DAD8CF9B7}</ProjectGuid>
     <RootNamespace>clientdessin</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -49,6 +49,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -66,29 +67,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DessinerJava.cpp" />
-    <ClCompile Include="Croix.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme.cpp" />
-    <ClCompile Include="MainSingleton.cpp" />
     <ClCompile Include="Rond.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Singleton.cpp" />
-    <ClCompile Include="TestBidon.cpp" />
     <ClCompile Include="TestClientDessin1.cpp" />
     <ClCompile Include="TestClientDessin2.cpp" />
-    <ClCompile Include="TestDessin.cpp" />
-    <ClCompile Include="TestMainVecteur.cpp" />
     <ClCompile Include="Vecteur2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DessinerJava.h" />
-    <ClInclude Include="Croix.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="Forme.h" />
     <ClInclude Include="Rond.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Singleton.h" />
-    <ClInclude Include="TestDessin.h" />
     <ClInclude Include="Vecteur2D.h" />
     <ClInclude Include="VisiteurDessiner.h" />
   </ItemGroup>

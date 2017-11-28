@@ -3,11 +3,42 @@
 #include "VisiteurDessiner.h"
 #include "Segment.h"
 
+
+
+Segment::Segment(int couleur, Vecteur2D x, Vecteur2D y):Forme(couleur), _x(x), _y(y)
+{
+
+}
+
+Segment::Segment(Segment & s) : Forme(s), _x(s._x), _y(s._y)
+{
+
+}
+
 /**
 * @param x
 * @param y
 */
-Segment::Segment(const double x, const double y) : _x(x), _y(y) {}
+
+Vecteur2D Segment::getX() const
+{
+	return _x;
+}
+
+Vecteur2D Segment::getY() const
+{
+	return _y;
+}
+
+void Segment::setX(Vecteur2D x)
+{
+	_x = x;
+}
+
+void Segment::setY(Vecteur2D y)
+{
+	_y = y;
+}
 
 void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 {
@@ -24,22 +55,3 @@ Segment::operator string() const
 	return oss.str();
 }
 
-double Segment::getX() const
-{
-	return _x;
-}
-
-double Segment::getY() const
-{
-	return _y;
-}
-
-void Segment::setX(double x)
-{
-	_x = x;
-}
-
-void Segment::setY(double y)
-{
-	_y = y;
-}

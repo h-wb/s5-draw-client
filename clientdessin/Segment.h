@@ -7,22 +7,25 @@ cf. classe JAVA de même nom
 */
 class Segment : public Forme
 {
-	double _x, _y;
+private:
+	Vecteur2D _x, _y;
 public:
-
-
+	Segment(int couleur, Vecteur2D x, Vecteur2D y);
+	Segment(Segment &s);
 	/**
 	* @param x
 	* @param y
 	*/
 	Segment(const double x, const double y);
 
+	Vecteur2D getX() const;
+	Vecteur2D getY() const;
+	void setX(Vecteur2D x);
+	void setY(Vecteur2D y);
+
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
 	operator string() const;
-	double getX() const;
-	double getY() const;
-	void setX(double);
-	void setY(double);
+
 };
 

@@ -163,7 +163,7 @@ if (r == SOCKET_ERROR)
 cout << "requête de tracé de segment envoyée" << endl;
 }
 
-void DessinerJava::visite(const Croix * forme) const
+/*void DessinerJava::visite(const Croix * forme) const
 {
 	DessinerJava c("127.0.0.1", 8091);
 	int marge, largeur, hauteur;
@@ -175,7 +175,7 @@ void DessinerJava::visite(const Croix * forme) const
 
 	c.traceSegment(marge, marge, marge + largeur, marge + hauteur);
 	c.traceSegment(marge, marge + hauteur, marge + largeur, marge);
-}
+}*/
 
 void DessinerJava::visite(const Rond * forme) const
 {
@@ -185,8 +185,8 @@ void DessinerJava::visite(const Rond * forme) const
 	largeur = hauteur = (int)(2 * forme->getRayon());
 	int bordGauche, bordHaut;
 
-	bordGauche = (int)(forme->getxCentre() - forme->getRayon());
-	bordHaut = (int)(forme->getyCentre() - forme->getRayon());
+	bordGauche = (forme->getCentre().getX() - forme->getRayon());
+	bordHaut = (forme->getCentre().getY() - forme->getRayon());
 	c.ouvreFenetreGraphique("rond client C++", bordGauche - marge, bordHaut - marge, largeur + 2 * marge, hauteur + 2 * marge);
 
 	c.remplitEllipse(marge, marge, largeur, hauteur);
@@ -194,13 +194,14 @@ void DessinerJava::visite(const Rond * forme) const
 
 void DessinerJava::visite(const Segment * forme) const
 {
-	DessinerJava c("127.0.0.1", 8091);
+	/*DessinerJava c("127.0.0.1", 8091);
 	int marge, largeur, hauteur;
 
-	largeur = (int)(forme->getY() - forme->getX());
+	largeur = (int)(forme->getX() - forme->getX());
 	hauteur = (int)(forme->getY() - forme->getX());
 	marge = 50;
 	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX() - marge, (int)forme->getY() - marge, largeur + 2 * marge, hauteur + 2 * marge);
 
-	c.traceSegment(marge, marge, marge + largeur, marge + hauteur);
+	c.traceSegment(marge, marge, marge + largeur, marge + hauteur);*/
+
 }

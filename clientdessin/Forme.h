@@ -3,9 +3,12 @@
 #include <iostream>
 #include <string>
 
+#define red 0;
+
 using namespace std;
 
 class VisiteurDessiner;
+class Vecteur2D;
 
 /**
  * Hiérarchie simplifiée de formes en 2D
@@ -13,14 +16,20 @@ class VisiteurDessiner;
  * */
 class Forme
 {
+private:
+	int _couleur;
 public:
+	Forme(int couleur);
+	Forme(const Forme &f);
 
-void dessiner() const;
+	void dessiner() const;
 
-virtual  void dessiner( VisiteurDessiner * visiteurDessiner) const = 0;
+	virtual int getCouleur() const;
+	virtual void setCouleur(int couleur);
 
-
-virtual operator string () const = 0;
+	virtual  void dessiner( VisiteurDessiner * visiteurDessiner) const = 0;
+	
+	virtual operator string () const = 0;
 
 };
 

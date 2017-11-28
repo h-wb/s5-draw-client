@@ -14,25 +14,25 @@ inline const T operator - (const T & u, const T & v)
 
 class Vecteur2D
 {
+private:
+	double _x, _y;
 public:
-	double x, y;
+	Vecteur2D(const double & x = 0, const double & y = 0);
+	Vecteur2D(const char * s);
+	virtual ~Vecteur2D();
 
-	inline explicit Vecteur2D(const double & x = 0, const double & y = 0);
 
-	/**
-	* DONNEES : s respectant le format "(  nombre réel, nombre réel)"
-	*
-	* */
-	inline Vecteur2D(const char * s);
-	inline const Vecteur2D operator + (const Vecteur2D & u) const;
-	inline const Vecteur2D operator * (const double & a) const;
-	/**
-	* - unaire (c'est-à- dire opposé d'un vecteur)
-	* */
-	inline const Vecteur2D operator - () const;
+	const Vecteur2D operator + (const Vecteur2D & u) const;
+	const Vecteur2D operator * (const double & a) const;
+	const Vecteur2D operator - () const;
+
+	double getX() const;
+	double getY() const;
+	void setX(double x);
+	void setY(double y);
 
 	operator string() const;
+	
+};
 
-}; // classe Vecteur2D
-
-inline const Vecteur2D operator *(const double & a, const Vecteur2D & u) { return u*a; }
+ostream& operator<<(ostream &o, const Vecteur2D &v);

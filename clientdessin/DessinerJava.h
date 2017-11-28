@@ -51,7 +51,6 @@ envoie sur une seule ligne les 5 paramètres au serveur.
 *  * */
 void remplitEllipse( const int bordGauche, const int bordHaut, const int largeur, const int hauteur);
 
-void visite(const Croix * forme) const;
 
 void visite(const Rond * forme) const;
 

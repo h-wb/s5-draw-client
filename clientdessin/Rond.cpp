@@ -7,8 +7,18 @@
  * @param yCentre
  * @param rayon
  */
-Rond::Rond( const double xCentre, const double yCentre, const double rayon) : _xCentre (xCentre), _yCentre (yCentre), _rayon (rayon) {}
 
+
+
+Rond::Rond(int couleur, Vecteur2D centre, double rayon):Forme(couleur), _centre(centre)
+{
+	_rayon = rayon;
+}
+
+Rond::Rond(Rond & r):Forme(r), _centre(r._centre)
+{
+	_rayon = r._rayon;
+}
 
 void Rond::dessiner( VisiteurDessiner * visiteurDessiner) const
 {
@@ -20,19 +30,20 @@ Rond::operator string() const
 {
 ostringstream oss;
 
-oss << "Rond : "<<"xCentre = " << _xCentre << ", yCentre = " << _yCentre <<", rayon = " << _rayon;
+oss << "Rond : "<<"Centre = " << _centre <<", rayon = " << _rayon;
 
 return oss.str();
 }
 
-double Rond::getxCentre() const
+
+Vecteur2D Rond::getCentre() const
 {
-	return _xCentre;
+	return _centre;
 }
 
-double Rond::getyCentre() const
+void Rond::setCentre(Vecteur2D v)
 {
-	return _yCentre;
+	_centre = v;
 }
 
 double Rond::getRayon() const
@@ -40,15 +51,6 @@ double Rond::getRayon() const
 	return _rayon;
 }
 
-void Rond::setxCentre(double xCentre)
-{
-	_xCentre = xCentre;
-}
-
-void Rond::setyCentre(double yCentre)
-{
-	_yCentre = yCentre;
-}
 
 void Rond::setRayon(double rayon)
 {
