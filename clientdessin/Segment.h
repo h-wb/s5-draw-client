@@ -1,4 +1,5 @@
 #pragma once
+#include "Vecteur2D.h"
 #include "Forme.h"
 
 /**
@@ -25,6 +26,8 @@ public:
 
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
+	const Segment translation(const Vecteur2D & VectTrans);
+	
 	operator string() const;
 
 };

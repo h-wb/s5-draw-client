@@ -29,4 +29,6 @@ Vecteur2D getCentre() const;
 void setCentre(Vecteur2D v);
 double getRayon() const;
 void setRayon(double);
+
+const Rond translation(const Vecteur2D & VectTrans);
 };

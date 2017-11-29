@@ -28,7 +28,6 @@ public:
 	virtual void setCouleur(int couleur);
 
 	virtual  void dessiner( VisiteurDessiner * visiteurDessiner) const = 0;
-	
 	virtual operator string () const = 0;
 
 };

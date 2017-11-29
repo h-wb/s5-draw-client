@@ -46,6 +46,10 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+const Segment(const Vecteur2D & VectTrans) {
+
+}
+
 Segment::operator string() const
 {
 	ostringstream oss;
