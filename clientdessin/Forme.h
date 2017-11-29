@@ -6,9 +6,12 @@
 #include "Vecteur2D.h"
 
 
-#define RED 0;
-#define BLUE 1;
-#define GREEN 2;
+#define black 0;
+#define blue 1;
+#define red 2;
+#define green 3;
+#define yellow 4;
+#define cyan 5;
 
 using namespace std;
 

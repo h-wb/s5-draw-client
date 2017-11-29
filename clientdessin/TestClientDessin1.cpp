@@ -39,7 +39,7 @@ int main1()
 
 		dessinerJava.ouvreFenetreGraphique(titre, bordGauche, bordHaut, largeur, hauteur);
 
-		int couleur = 1;
+		int couleur = 2;
 		int x1 = 180;
 		int y1 = 40;
 		int x2 = 40;
