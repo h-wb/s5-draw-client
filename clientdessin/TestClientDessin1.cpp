@@ -39,12 +39,13 @@ int main1()
 
 		dessinerJava.ouvreFenetreGraphique(titre, bordGauche, bordHaut, largeur, hauteur);
 
+		int couleur = 1;
 		int x1 = 180;
 		int y1 = 40;
 		int x2 = 40;
 		int y2 = 180;
 
-		dessinerJava.traceSegment(x1, y1, x2, y2);
+		dessinerJava.traceSegment(couleur, x1, y1, x2, y2);
 
 		bordGauche = 40;
 		bordHaut = 100;

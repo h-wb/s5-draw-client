@@ -43,7 +43,7 @@ void ouvreFenetreGraphique(const string & titre, const int bordGauche, const int
     envoie sur une seule ligne les 5 paramètres au serveur.
  * Les 5 paramètres drawLine, ... , y2 sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
  *  * */
-void traceSegment( const int x1, const int y1, const int x2, const int y2);
+void traceSegment(const int couleur, const int x1, const int y1, const int x2, const int y2);
 
 /**
 envoie sur une seule ligne les 5 paramètres au serveur.
@@ -55,6 +55,8 @@ void remplitEllipse( const int bordGauche, const int bordHaut, const int largeur
 void visite(const Rond * forme) const;
 
 void visite(const Segment * forme) const;
+
+void visite(const Polygone * forme) const;
 
 };
 

@@ -1,5 +1,4 @@
 #pragma once
-#include "Vecteur2D.h"
 #include "Forme.h"
 /**
  * Représente un cercle de centre (xCentre, yCentre) et de rayon "rayon"
@@ -13,8 +12,8 @@ private :
 	double _rayon;
 public:
 /**
- * @param xCentre
- * @param yCentre
+ * @param couleur
+ * @param centre
  * @param rayon
  */
 Rond(int couleur, Vecteur2D centre, double rayon);

@@ -16,16 +16,17 @@ public:
 	* @param x
 	* @param y
 	*/
-	Segment(const double x, const double y);
 
-	Vecteur2D getX() const;
-	Vecteur2D getY() const;
-	void setX(Vecteur2D x);
-	void setY(Vecteur2D y);
+
 
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
 	operator string() const;
 
+
+	Vecteur2D getX() const;
+	Vecteur2D getY() const;
+	void setX(Vecteur2D x);
+	void setY(Vecteur2D y);
 };
 

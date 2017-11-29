@@ -69,6 +69,7 @@
     <ClCompile Include="DessinerJava.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme.cpp" />
+    <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Rond.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Singleton.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="DessinerJava.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="Forme.h" />
+    <ClInclude Include="Polygone.h" />
     <ClInclude Include="Rond.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="Singleton.h" />

@@ -2,8 +2,13 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include "Vecteur2D.h"
 
-#define red 0;
+
+#define RED 0;
+#define BLUE 1;
+#define GREEN 2;
 
 using namespace std;
 

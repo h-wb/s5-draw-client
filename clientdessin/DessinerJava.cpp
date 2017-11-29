@@ -121,11 +121,11 @@ cout << "requête d'ouverture de fenêtre graphique envoyée" << endl;
     envoie sur une seule ligne les 5 paramètres au serveur.
  * Les 5 paramètres drawLine, ... , y2 sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
  *  * */
-void DessinerJava::traceSegment( const int x1, const int y1, const int x2, const int y2)
+void DessinerJava::traceSegment(const int couleur, const int x1, const int y1, const int x2, const int y2)
 {
 ostringstream oss;
 
-oss << "drawLine, " << x1 << ", " << y1 << ", " << x2 << ", " << y2 << "\r\n";
+oss << "drawLine, " << couleur << ", " << x1 << ", " << y1 << ", " << x2 << ", " << y2 << "\r\n";
 
 string requete = oss.str();
 
@@ -144,7 +144,7 @@ cout << "requête de tracé de segment envoyée" << endl;
 envoie sur une seule ligne les 5 paramètres au serveur.
 * Les 5 paramètres fillOval, ... , hauteur sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
 *  * */
-void DessinerJava::remplitEllipse( const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
+void DessinerJava::remplitEllipse(const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
 {
 ostringstream oss;
 
@@ -194,14 +194,19 @@ void DessinerJava::visite(const Rond * forme) const
 
 void DessinerJava::visite(const Segment * forme) const
 {
-	/*DessinerJava c("127.0.0.1", 8091);
+	DessinerJava c("127.0.0.1", 8091);
 	int marge, largeur, hauteur;
 
-	largeur = (int)(forme->getX() - forme->getX());
-	hauteur = (int)(forme->getY() - forme->getX());
+	largeur = (int)(forme->getX().getX() - forme->getX().getX());
+	hauteur = (int)(forme->getY().getY() - forme->getX().getX());
 	marge = 50;
-	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX() - marge, (int)forme->getY() - marge, largeur + 2 * marge, hauteur + 2 * marge);
+	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX().getX() - marge, (int)forme->getY().getY() - marge, largeur + 2 * marge, hauteur + 2 * marge);
 
-	c.traceSegment(marge, marge, marge + largeur, marge + hauteur);*/
+	c.traceSegment(forme->getCouleur(), marge, marge, marge + largeur, marge + hauteur);
+	
 
+}
+
+void DessinerJava::visite(const Polygone * forme) const
+{
 }
