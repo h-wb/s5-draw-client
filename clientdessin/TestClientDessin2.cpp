@@ -33,14 +33,14 @@ cout << &ptr1 << "|" << &ptr2 << endl;
 
 cout << "test vecteurs 2D \n";
 
-Vecteur2D u1(300, 300), u2(40, 20), u3(100,100), w, v1(35, -63), u4(3, -4), v3;
+Vecteur2D u1(300, 300), u2(40, 20), u3(100,100), w, v1(35, -63), u4(3, -4), v3, u10(170,140), u11(240,130);
 
 cout << " u1 = " << u1 << endl;
 
 Forme * f1, * f2, *f3;
 //f2 = new Rond(300, 300, 30);
 //f2 = new Rond(1, u1, 30);
-f3 = new Segment(40, 100);
+f3 = new Segment(1,u10, u11);
 
 
 //cout << "f1 = " << f1 << endl;

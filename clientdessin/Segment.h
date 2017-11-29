@@ -22,7 +22,6 @@ public:
 
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
-	const Segment translation(const Vecteur2D & VectTrans);
 	
 	operator string() const;
 
