@@ -10,10 +10,12 @@ Segment::Segment(int couleur, Vecteur2D x, Vecteur2D y):Forme(couleur), _x(x), _
 
 }
 
-Segment::Segment(Segment & s) : Forme(s), _x(s._x), _y(s._y)
+Segment::Segment(const Segment & s) : Forme(s), _x(s._x), _y(s._y)
 {
+	
 
 }
+
 
 /**
 * @param x
@@ -54,5 +56,11 @@ Segment::operator string() const
 	oss << "Segment : " << "x = " << _x << ", y = " << _y;
 
 	return oss.str();
+}
+
+
+ostream & operator << (ostream & os, const Segment * s)
+{
+	return os;
 }
 

@@ -49,7 +49,7 @@ void traceSegment(const int couleur, const int x1, const int y1, const int x2, c
 envoie sur une seule ligne les 5 paramètres au serveur.
 * Les 5 paramètres fillOval, ... , hauteur sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
 *  * */
-void remplitEllipse( const int bordGauche, const int bordHaut, const int largeur, const int hauteur);
+void remplitEllipse(const int couleur, const int bordGauche, const int bordHaut, const int largeur, const int hauteur);
 
 
 void visite(const Rond * forme) const;

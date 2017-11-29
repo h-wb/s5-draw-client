@@ -144,11 +144,11 @@ cout << "requête de tracé de segment envoyée" << endl;
 envoie sur une seule ligne les 5 paramètres au serveur.
 * Les 5 paramètres fillOval, ... , hauteur sont au préalable encodés en 1 seule String. Les paramètres sont séparés par ", "
 *  * */
-void DessinerJava::remplitEllipse(const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
+void DessinerJava::remplitEllipse(const int couleur, const int bordGauche, const int bordHaut, const int largeur, const int hauteur)
 {
 ostringstream oss;
 
-oss << "fillOval" << ", " << bordGauche << ", " << bordHaut << ", " << largeur << ", " << hauteur << "\r\n";
+oss << "fillOval" << ", " << couleur << ", " << bordGauche << ", " << bordHaut << ", " << largeur << ", " << hauteur << "\r\n";
 
 string requete = oss.str();
 
@@ -189,19 +189,21 @@ void DessinerJava::visite(const Rond * forme) const
 	bordHaut = (forme->getCentre().getY() - forme->getRayon());
 	c.ouvreFenetreGraphique("rond client C++", bordGauche - marge, bordHaut - marge, largeur + 2 * marge, hauteur + 2 * marge);
 
-	c.remplitEllipse(marge, marge, largeur, hauteur);
+	c.remplitEllipse(forme->getCouleur(), marge, marge, largeur, hauteur);
 }
 
 void DessinerJava::visite(const Segment * forme) const
 {
 	DessinerJava c("127.0.0.1", 8091);
 	int marge, largeur, hauteur;
-	marge = 50;
-	largeur = (int)(forme->getX().getX() - forme->getX().getY());
-	hauteur = (int)(forme->getY().getY() - forme->getY().getX());
 	
-	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX().getX() - marge, (int)forme->getY().getX() - marge, largeur + 2 * marge, hauteur + 2 * marge);
-
+	largeur = (int)(forme->getX().getX() + forme->getX().getY());
+	//hauteur = (int)(forme->getY().getY() + forme->getY().getX());
+	largeur = (int)(forme->getY().getX());
+	hauteur = (int)(forme->getY().getY());
+	marge = 50;
+	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX().getX() - marge, (int)forme->getX().getY() -  marge, largeur +2 * marge, hauteur +2 * marge);
+	//c.ouvreFenetreGraphique("segment client C++",200, 200, 200,200);
 	c.traceSegment(forme->getCouleur(), forme->getX().getX(), forme->getX().getY(), forme->getY().getX(), forme->getY().getY());
 	
 
@@ -209,4 +211,14 @@ void DessinerJava::visite(const Segment * forme) const
 
 void DessinerJava::visite(const Polygone * forme) const
 {
+	DessinerJava c("127.0.0.1", 8091);
+	vector<Segment> s = forme->getCotes();
+	cout << forme->getVecteur().size();
+	c.ouvreFenetreGraphique("polygone client C++", 500, 500, 500, 500);
+	for(int i=1; i<s.size(); i++){
+		c.traceSegment(forme->getCouleur(), s[i-1].getX().getX(), s[i - 1].getX().getY(), s[i-1].getY().getX(), s[i-1].getY().getY());
+	}
+	c.traceSegment(forme->getCouleur(), s[s.size()-1].getX().getX(), s[s.size()-1].getX().getY(), s[s.size() - 1].getY().getX(), s[s.size()-1].getY().getY());
+	//c.traceSegment(2, s[3].getX().getX(), s[3].getX().getY(), s[3].getY().getX(), s[3].getY().getY());
+	//cout << s[2].getX().getX() << s[2].getX().getY() << s[2].getY().getX() << s[2].getY().getY();
 }

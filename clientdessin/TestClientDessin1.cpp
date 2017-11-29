@@ -23,7 +23,7 @@ int main1()
 {
 	try
 	{
-
+/*
 		string adresseServeur = "127.0.0.1";
 		int portServeurDessin = 8091;
 
@@ -52,7 +52,7 @@ int main1()
 		largeur = 70;
 		hauteur = 70;
 
-		dessinerJava.remplitEllipse(bordGauche, bordHaut, largeur, hauteur);
+		//dessinerJava.remplitEllipse(bordGauche, bordHaut, largeur, hauteur);*/
 	}
 	catch (Erreur e)
 	{

@@ -12,6 +12,7 @@
 #include "Erreur.h"
 #include "Vecteur2D.h"
 #include "Singleton.h"
+#include "Polygone.h"
 
 using namespace std;
 
@@ -33,14 +34,19 @@ cout << &ptr1 << "|" << &ptr2 << endl;
 
 cout << "test vecteurs 2D \n";
 
-Vecteur2D u1(300, 300), u2(150, 100), u3(100,100), w, v1(35, -63), u4(3, -4), v3;
-
+Vecteur2D u1(50, 15), u2(35, 40), u3(40, 20), u4(25,70), w, v1(35, -63), v3;
+Vecteur2D t1(100, 100), t2(80, 120), t3(80, 140), t4(100, 160), t5(140, 160), t6(160, 140), t7(160, 120), t8(140,100) ;
 cout << " u1 = " << u1 << endl;
 
 Forme * f1, * f2, *f3;
 //f2 = new Rond(300, 300, 30);
-//f2 = new Rond(0, u1, 30);
-f3 = new Segment(0, u2, u3);
+//f2= new Rond(5, u1, 30);
+//f3 = new Segment(2, u2, u3);
+f1 = new Polygone(5);
+
+Polygone P(2);
+P = P + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
+
 
 
 //cout << "f1 = " << f1 << endl;
@@ -49,7 +55,8 @@ f3 = new Segment(0, u2, u3);
 
 //f1->dessiner(new DessinerJava); // requête vers le serveur de dessin
 //f2->dessiner(new DessinerJava);      // requête vers le serveur de dessin
-f3->dessiner(new DessinerJava);
+//f3->dessiner(new DessinerJava);
+P.dessiner(new DessinerJava);
 }
 catch(Erreur e)
 {

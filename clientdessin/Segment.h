@@ -12,7 +12,7 @@ private:
 	Vecteur2D _x, _y;
 public:
 	Segment(int couleur, Vecteur2D x, Vecteur2D y);
-	Segment(Segment &s);
+	Segment(const Segment &s);
 	/**
 	* @param x
 	* @param y
@@ -30,5 +30,6 @@ public:
 	Vecteur2D getY() const;
 	void setX(Vecteur2D x);
 	void setY(Vecteur2D y);
+	friend ostream & operator << (ostream & os, const Segment * s);
 };
 
