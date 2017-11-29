@@ -196,13 +196,13 @@ void DessinerJava::visite(const Segment * forme) const
 {
 	DessinerJava c("127.0.0.1", 8091);
 	int marge, largeur, hauteur;
-
-	largeur = (int)(forme->getX().getX() - forme->getX().getX());
-	hauteur = (int)(forme->getY().getY() - forme->getX().getX());
 	marge = 50;
-	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX().getX() - marge, (int)forme->getY().getY() - marge, largeur + 2 * marge, hauteur + 2 * marge);
+	largeur = (int)(forme->getX().getX() - forme->getX().getY());
+	hauteur = (int)(forme->getY().getY() - forme->getY().getX());
+	
+	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX().getX() - marge, (int)forme->getY().getX() - marge, largeur + 2 * marge, hauteur + 2 * marge);
 
-	c.traceSegment(forme->getCouleur(), marge, marge, marge + largeur, marge + hauteur);
+	c.traceSegment(forme->getCouleur(), forme->getX().getX(), forme->getX().getY(), forme->getY().getX(), forme->getY().getY());
 	
 
 }
