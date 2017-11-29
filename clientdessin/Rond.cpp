@@ -56,3 +56,4 @@ void Rond::setRayon(double rayon)
 {
 	_rayon = rayon;
 }
+

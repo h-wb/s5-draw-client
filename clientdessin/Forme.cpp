@@ -30,6 +30,7 @@ catch (Erreur e)
 	}
 }
 
+
 int Forme::getCouleur() const
 {
 	return _couleur;

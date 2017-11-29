@@ -1,4 +1,5 @@
 #pragma once
+#include "Vecteur2D.h"
 #include "Forme.h"
 
 /**
@@ -21,6 +22,7 @@ public:
 
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
+	
 	operator string() const;
 
 

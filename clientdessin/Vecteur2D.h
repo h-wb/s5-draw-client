@@ -31,6 +31,8 @@ public:
 	void setX(double x);
 	void setY(double y);
 
+	const Vecteur2D translation(const Vecteur2D & VectTrans, const Vecteur2D & u);
+
 	operator string() const;
 	
 };

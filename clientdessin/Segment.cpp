@@ -46,6 +46,7 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+
 Segment::operator string() const
 {
 	ostringstream oss;
