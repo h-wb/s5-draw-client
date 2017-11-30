@@ -32,6 +32,15 @@ void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 /*virtual*/ Forme * Triangle::homothetie(const Vecteur2D & point, const double & rapport) const {
 
-	return new Triangle(getCouleur(), point + _vecteurs[0], point + _vecteurs[1], point + _vecteurs[2]);
+	Vecteur2D oa, ob, oc, oap, obp, ocp;
+	oa = point - _vecteurs[0];
+	ob = point - _vecteurs[1];
+	oc = point - _vecteurs[2];
+
+	oap = oa * rapport;
+	obp = ob * rapport;
+	ocp = oc * rapport;
+
+	return new Triangle(getCouleur(), oap + point, obp + point, ocp + point);
 
 }
