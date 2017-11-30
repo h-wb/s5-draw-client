@@ -41,6 +41,12 @@ return oss.str();
 
 }
 
+/*virtual*/ Forme * Rond::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	return new Rond(getCouleur(), point + _centre, getRayon());
+
+}
+
 
 Vecteur2D Rond::getCentre() const
 {

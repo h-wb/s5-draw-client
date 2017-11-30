@@ -29,9 +29,16 @@ void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+//Translation fausse mais retour faux pour éviter les erreurs de compilo
 /*virtual*/ Forme * Polygone::translation(const Vecteur2D & VectTrans) const {
 
-	//return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+	return new Polygone(getCouleur());
+
+}
+
+/*virtual*/ Forme * Polygone::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	return new Polygone(getCouleur());
 
 }
 

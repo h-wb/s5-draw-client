@@ -17,6 +17,7 @@ Triangle::Triangle(Triangle & t) : Polygone(t)
 	setCotes(t._cotes);
 }
 
+
 void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 {
 	return visiteurDessiner->visite(this);
@@ -25,6 +26,12 @@ void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 /*virtual*/ Forme * Triangle::translation(const Vecteur2D & VectTrans) const {
 
-	//return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+	return new Triangle(getCouleur(), VectTrans + _vecteurs[0], VectTrans + _vecteurs[1], VectTrans + _vecteurs[2]);
+
+}
+
+/*virtual*/ Forme * Triangle::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	return new Triangle(getCouleur(), point + _vecteurs[0], point + _vecteurs[1], point + _vecteurs[2]);
 
 }

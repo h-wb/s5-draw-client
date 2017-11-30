@@ -48,6 +48,18 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+/*virtual*/ Forme * Segment::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	Vecteur2D oa, ob, oap, obp;
+	oa = point - _debut;
+	ob = point - _fin;
+
+	oap = oa * rapport;
+	obp = ob * rapport;
+
+	return new Segment(getCouleur(), oap + point, obp + point);
+}
+
 
 Segment::operator string() const
 {
