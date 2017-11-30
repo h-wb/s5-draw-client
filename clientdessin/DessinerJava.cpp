@@ -189,7 +189,7 @@ void DessinerJava::visite(const Rond * forme) const
 	bordHaut = (forme->getCentre().getY() - forme->getRayon());
 	c.ouvreFenetreGraphique("rond client C++", bordGauche - marge, bordHaut - marge, largeur + 2 * marge, hauteur + 2 * marge);
 
-	c.remplitEllipse(forme->getCouleur(), marge, marge, largeur, hauteur);
+	c.remplitEllipse(forme->getCouleur(), forme->getCentre().getX(), forme->getCentre().getY(), 2*forme->getRayon(), 2 * forme->getRayon());
 }
 
 void DessinerJava::visite(const Segment * forme) const
