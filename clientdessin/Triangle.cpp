@@ -22,3 +22,9 @@ void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 	return visiteurDessiner->visite(this);
 
 }
+
+/*virtual*/ Forme * Triangle::translation(const Vecteur2D & VectTrans) const {
+
+	//return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+
+}

@@ -21,6 +21,7 @@ public:
 
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
+	virtual Forme * translation(const Vecteur2D & VectTrans) const;
 
 
 

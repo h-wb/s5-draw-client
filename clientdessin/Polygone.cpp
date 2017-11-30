@@ -29,6 +29,12 @@ void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+/*virtual*/ Forme * Polygone::translation(const Vecteur2D & VectTrans) const {
+
+	//return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+
+}
+
 void Polygone::Construction() {
 	
 		for (int i = 1; i < _vecteurs.size(); i++) {
