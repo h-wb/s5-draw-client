@@ -30,9 +30,9 @@ public:
 
 	operator string() const;
 
-	Polygone operator=(const Polygone &p);
+	//Polygone& operator=(const Polygone &p);
 	Polygone& operator+=(const Vecteur2D &v);
-	Polygone operator+(const Vecteur2D &v);
+	//Polygone& operator+(const Vecteur2D &v);
 
 
 	virtual vector<Vecteur2D> getVecteurs() const;

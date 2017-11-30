@@ -41,8 +41,6 @@ void Forme::setCouleur(int couleur)
 	_couleur = couleur;
 }
 
-
-
 ostream & operator << (ostream & os, const Forme * forme)
 {
 return os << (string)(*forme);
