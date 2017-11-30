@@ -18,7 +18,7 @@ Polygone::Polygone(int couleur) : Forme(couleur)
 Polygone::Polygone(Polygone & p) : Forme(p)
 {
 	_nbCotes = p._nbCotes;
-	_vecteur = p._vecteur;
+	_vecteurs = p._vecteurs;
 	_cotes = p._cotes;
 }
 
@@ -31,11 +31,11 @@ void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 void Polygone::Construction() {
 	
-		for (int i = 1; i < _vecteur.size(); i++) {
-			_cotes.push_back(Segment(getCouleur(), _vecteur[i-1], _vecteur[i]));
+		for (int i = 1; i < _vecteurs.size(); i++) {
+			_cotes.push_back(Segment(getCouleur(), _vecteurs[i-1], _vecteurs[i]));
 			_nbCotes++;
 		}
-		_cotes.push_back(Segment(getCouleur(), _vecteur[_vecteur.size() - 1], _vecteur[0]));
+		_cotes.push_back(Segment(getCouleur(), _vecteurs[_vecteurs.size() - 1], _vecteurs[0]));
 		_nbCotes++;
 	
 }
@@ -53,7 +53,7 @@ Polygone::operator string() const
 
 Polygone Polygone::operator=(const Polygone & p)
 {	
-	_vecteur = p._vecteur;
+	_vecteurs = p._vecteurs;
 	_cotes = p._cotes;
 	_nbCotes = p._nbCotes;
 	this->Construction();
@@ -63,7 +63,7 @@ Polygone Polygone::operator=(const Polygone & p)
 
 Polygone & Polygone::operator+=(const Vecteur2D & v)
 {
-	_vecteur.push_back(v);
+	_vecteurs.push_back(v);
 	return *this;
 }
 
@@ -74,14 +74,14 @@ Polygone Polygone::operator+(const Vecteur2D & v)
 	return p;
 }
 
-vector<Vecteur2D> Polygone::getVecteur() const
+vector<Vecteur2D> Polygone::getVecteurs() const
 {
-	return _vecteur;
+	return _vecteurs;
 }
 
-void Polygone::setVecteur(vector<Vecteur2D> v)
+void Polygone::setVecteurs(vector<Vecteur2D> v)
 {
-	_vecteur = v;
+	_vecteurs = v;
 }
 
 vector<Segment> Polygone::getCotes() const

@@ -10,8 +10,8 @@ class Segment;
 * */
 class Polygone : public Forme
 {
-private:
-	vector<Vecteur2D> _vecteur;
+protected:
+	vector<Vecteur2D> _vecteurs;
 	vector<Segment> _cotes;	
 	int _nbCotes;
 public:
@@ -19,7 +19,7 @@ public:
 	/**
 	* @param couleur
 	* @param centre
-	* @param rayon
+	* @param r
 	*/
 	Polygone(int couleur);
 	Polygone(Polygone &p);
@@ -35,8 +35,8 @@ public:
 	Polygone operator+(const Vecteur2D &v);
 
 
-	virtual vector<Vecteur2D> getVecteur() const;
-	virtual void setVecteur(vector<Vecteur2D> v);
+	virtual vector<Vecteur2D> getVecteurs() const;
+	virtual void setVecteurs(vector<Vecteur2D> v);
 	virtual vector<Segment> getCotes() const;
 	virtual void setCotes(vector<Segment> s);
 

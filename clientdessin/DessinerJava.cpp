@@ -197,13 +197,10 @@ void DessinerJava::visite(const Segment * forme) const
 	DessinerJava c("127.0.0.1", 8091);
 	int marge, largeur, hauteur;
 	
-	largeur = (int)(forme->getX().getX() + forme->getX().getY());
-	//hauteur = (int)(forme->getY().getY() + forme->getY().getX());
 	largeur = (int)(forme->getY().getX());
 	hauteur = (int)(forme->getY().getY());
 	marge = 50;
 	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX().getX() - marge, (int)forme->getX().getY() -  marge, largeur +2 * marge, hauteur +2 * marge);
-	//c.ouvreFenetreGraphique("segment client C++",200, 200, 200,200);
 	c.traceSegment(forme->getCouleur(), forme->getX().getX(), forme->getX().getY(), forme->getY().getX(), forme->getY().getY());
 	
 
@@ -213,12 +210,47 @@ void DessinerJava::visite(const Polygone * forme) const
 {
 	DessinerJava c("127.0.0.1", 8091);
 	vector<Segment> s = forme->getCotes();
-	cout << forme->getVecteur().size();
-	c.ouvreFenetreGraphique("polygone client C++", 500, 500, 500, 500);
+	vector<Vecteur2D> v = forme->getVecteurs();
+	int  marge = 150, xMin=0, yMin=0, xMax=0, yMax=0;
+	for (int i = 0; i < v.size(); i++){
+		if (v[i].getX() > xMax)
+			xMax = v[i].getX();
+		if (v[i].getY() > yMax)
+			yMax = v[i].getY();
+		if (v[i].getX() < xMin)
+			xMin = v[i].getX();
+		if (v[i].getY() < yMin)
+			yMin = v[i].getY();
+	}
+	//GetMax,GetMin héritable à faire
+	c.ouvreFenetreGraphique("polygone client C++", (int)xMin - marge , (int)yMax - marge, xMax + 2 * marge, yMax + 2 * marge);
 	for(int i=1; i<s.size(); i++){
 		c.traceSegment(forme->getCouleur(), s[i-1].getX().getX(), s[i - 1].getX().getY(), s[i-1].getY().getX(), s[i-1].getY().getY());
 	}
 	c.traceSegment(forme->getCouleur(), s[s.size()-1].getX().getX(), s[s.size()-1].getX().getY(), s[s.size() - 1].getY().getX(), s[s.size()-1].getY().getY());
-	//c.traceSegment(2, s[3].getX().getX(), s[3].getX().getY(), s[3].getY().getX(), s[3].getY().getY());
-	//cout << s[2].getX().getX() << s[2].getX().getY() << s[2].getY().getX() << s[2].getY().getY();
+}
+
+void DessinerJava::visite(const Triangle * forme) const
+{
+	DessinerJava c("127.0.0.1", 8091);
+	vector<Segment> s = forme->getCotes();
+	vector<Vecteur2D> v = forme->getVecteurs();
+	int  marge = 150, xMin = 0, yMin = 0, xMax = 0, yMax = 0;
+	for (int i = 0; i < v.size(); i++) {
+		if (v[i].getX() > xMax)
+			xMax = v[i].getX();
+		if (v[i].getY() > yMax)
+			yMax = v[i].getY();
+		if (v[i].getX() < xMin)
+			xMin = v[i].getX();
+		if (v[i].getY() < yMin)
+			yMin = v[i].getY();
+	}
+	//GetMax,GetMin héritable à faire
+	c.ouvreFenetreGraphique("triangle client C++", (int)xMin - marge, (int)yMax - marge, xMax + 2 * marge, yMax + 2 * marge);
+	for (int i = 1; i<s.size(); i++) {
+		c.traceSegment(forme->getCouleur(), s[i - 1].getX().getX(), s[i - 1].getX().getY(), s[i - 1].getY().getX(), s[i - 1].getY().getY());
+	}
+	c.traceSegment(forme->getCouleur(), s[s.size() - 1].getX().getX(), s[s.size() - 1].getX().getY(), s[s.size() - 1].getY().getX(), s[s.size() - 1].getY().getY());
+
 }

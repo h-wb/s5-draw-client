@@ -58,6 +58,8 @@ void visite(const Segment * forme) const;
 
 void visite(const Polygone * forme) const;
 
+void visite(const Triangle * forme) const;
+
 };
 
 
