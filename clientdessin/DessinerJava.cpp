@@ -189,7 +189,7 @@ void DessinerJava::visite(const Rond * forme) const
 	bordHaut = (forme->getCentre().getY() - forme->getRayon());
 	c.ouvreFenetreGraphique("rond client C++", bordGauche - marge, bordHaut - marge, largeur + 2 * marge, hauteur + 2 * marge);
 
-	c.remplitEllipse(forme->getCouleur(), marge, marge, largeur, hauteur);
+	c.remplitEllipse(forme->getCouleur(), forme->getCentre().getX(), forme->getCentre().getY(), 2*forme->getRayon(), 2*forme->getRayon());
 }
 
 void DessinerJava::visite(const Segment * forme) const
@@ -197,14 +197,14 @@ void DessinerJava::visite(const Segment * forme) const
 	DessinerJava c("127.0.0.1", 8091);
 	int marge, largeur, hauteur;
 	
-	largeur = (int)(forme->getX().getX() + forme->getX().getY());
+	largeur = (int)(forme->getDebut().getX() + forme->getDebut().getY());
 	//hauteur = (int)(forme->getY().getY() + forme->getY().getX());
-	largeur = (int)(forme->getY().getX());
-	hauteur = (int)(forme->getY().getY());
+	largeur = (int)(forme->getFin().getX());
+	hauteur = (int)(forme->getFin().getY());
 	marge = 50;
-	c.ouvreFenetreGraphique("segment client C++", (int)forme->getX().getX() - marge, (int)forme->getX().getY() -  marge, largeur +2 * marge, hauteur +2 * marge);
+	c.ouvreFenetreGraphique("segment client C++", (int)forme->getDebut().getX() - marge, (int)forme->getDebut().getY() -  marge, largeur +2 * marge, hauteur +2 * marge);
 	//c.ouvreFenetreGraphique("segment client C++",200, 200, 200,200);
-	c.traceSegment(forme->getCouleur(), forme->getX().getX(), forme->getX().getY(), forme->getY().getX(), forme->getY().getY());
+	c.traceSegment(forme->getCouleur(), forme->getDebut().getX(), forme->getDebut().getY(), forme->getFin().getX(), forme->getFin().getY());
 	
 
 }
@@ -216,9 +216,9 @@ void DessinerJava::visite(const Polygone * forme) const
 	cout << forme->getVecteur().size();
 	c.ouvreFenetreGraphique("polygone client C++", 500, 500, 500, 500);
 	for(int i=1; i<s.size(); i++){
-		c.traceSegment(forme->getCouleur(), s[i-1].getX().getX(), s[i - 1].getX().getY(), s[i-1].getY().getX(), s[i-1].getY().getY());
+		c.traceSegment(forme->getCouleur(), s[i-1].getDebut().getX(), s[i - 1].getDebut().getY(), s[i-1].getFin().getX(), s[i-1].getFin().getY());
 	}
-	c.traceSegment(forme->getCouleur(), s[s.size()-1].getX().getX(), s[s.size()-1].getX().getY(), s[s.size() - 1].getY().getX(), s[s.size()-1].getY().getY());
+	c.traceSegment(forme->getCouleur(), s[s.size()-1].getDebut().getX(), s[s.size()-1].getDebut().getY(), s[s.size() - 1].getFin().getX(), s[s.size()-1].getFin().getY());
 	//c.traceSegment(2, s[3].getX().getX(), s[3].getX().getY(), s[3].getY().getX(), s[3].getY().getY());
 	//cout << s[2].getX().getX() << s[2].getX().getY() << s[2].getY().getX() << s[2].getY().getY();
 }

@@ -35,6 +35,12 @@ oss << "Rond : "<<"Centre = " << _centre <<", rayon = " << _rayon;
 return oss.str();
 }
 
+/*virtual*/ Forme * Rond::translation(const Vecteur2D & VectTrans) const {
+
+	return new Rond(getCouleur(), VectTrans + _centre, getRayon());
+
+}
+
 
 Vecteur2D Rond::getCentre() const
 {

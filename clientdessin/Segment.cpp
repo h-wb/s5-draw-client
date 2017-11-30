@@ -4,13 +4,7 @@
 #include "Segment.h"
 
 
-
-Segment::Segment(int couleur, Vecteur2D x, Vecteur2D y):Forme(couleur), _x(x), _y(y)
-{
-
-}
-
-Segment::Segment(const Segment & s) : Forme(s), _x(s._x), _y(s._y)
+Segment::Segment(const Segment & s) : Forme(s), _debut(s._debut), _fin(s._fin)
 {
 	
 
@@ -22,24 +16,24 @@ Segment::Segment(const Segment & s) : Forme(s), _x(s._x), _y(s._y)
 * @param y
 */
 
-Vecteur2D Segment::getX() const
+Vecteur2D Segment::getDebut() const
 {
-	return _x;
+	return _debut;
 }
 
-Vecteur2D Segment::getY() const
+Vecteur2D Segment::getFin() const
 {
-	return _y;
+	return _fin;
 }
 
-void Segment::setX(Vecteur2D x)
+void Segment::setDebut(Vecteur2D debut)
 {
-	_x = x;
+	_debut = debut;
 }
 
-void Segment::setY(Vecteur2D y)
+void Segment::setFin(Vecteur2D fin)
 {
-	_y = y;
+	_fin = fin;
 }
 
 void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
@@ -48,12 +42,18 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+/*virtual*/ Forme * Segment::translation(const Vecteur2D & VectTrans) const {
+
+	return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+
+}
+
 
 Segment::operator string() const
 {
 	ostringstream oss;
 
-	oss << "Segment : " << "x = " << _x << ", y = " << _y;
+	oss << "Segment : " << "x = " << _debut << ", y = " << _fin;
 
 	return oss.str();
 }

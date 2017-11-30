@@ -51,7 +51,7 @@ Polygone::operator string() const
 	return oss.str();
 }
 
-Polygone Polygone::operator=(const Polygone & p)
+/*Polygone Polygone::operator=(const Polygone & p)
 {	
 	_vecteur = p._vecteur;
 	_cotes = p._cotes;
@@ -59,7 +59,7 @@ Polygone Polygone::operator=(const Polygone & p)
 	this->Construction();
 	return *this;
 
-}
+}*/
 
 Polygone & Polygone::operator+=(const Vecteur2D & v)
 {
@@ -67,12 +67,12 @@ Polygone & Polygone::operator+=(const Vecteur2D & v)
 	return *this;
 }
 
-Polygone Polygone::operator+(const Vecteur2D & v)
+/*Polygone Polygone::operator+(const Vecteur2D & v)
 {
 	Polygone p = Polygone(*this);
 	p += v;
 	return p;
-}
+}*/
 
 vector<Vecteur2D> Polygone::getVecteur() const
 {
