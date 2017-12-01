@@ -44,3 +44,26 @@ void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 	return new Triangle(getCouleur(), oap + point, obp + point, ocp + point);
 
 }
+
+/*virtual*/ double Triangle::aire() const {
+	double PuissanceAB, PuissanceAC, PuissanceBC;
+	double LongAB, LongAC, LongBC;
+	double S, aire;
+
+	PuissanceAB = pow((_vecteurs[1].getX() - _vecteurs[0].getX()), 2) + pow((_vecteurs[1].getY() - _vecteurs[0].getY()),2);
+	LongAB = sqrt(PuissanceAB);
+
+	PuissanceAC = pow((_vecteurs[2].getX() - _vecteurs[0].getX()), 2) + pow((_vecteurs[2].getY() - _vecteurs[0].getY()), 2);
+	LongAC = sqrt(PuissanceAC);
+
+	PuissanceBC = pow((_vecteurs[2].getX() - _vecteurs[1].getX()), 2) + pow((_vecteurs[2].getY() - _vecteurs[1].getY()), 2);
+	LongBC = sqrt(PuissanceBC);
+
+	//Formule de héron qui permet de calculer la hauteur du triangle puis par la suite l'aire du triangle
+	//S = (a+b+c)/2 puis formule : aire = sqrt(S(S-a)(S-b)(S-c))
+
+	S = (LongAB + LongAC + LongBC) / 2;
+	aire = sqrt(S * (S - LongAB) * (S - LongAC) * (S - LongBC));
+
+	return aire;
+}

@@ -2,6 +2,8 @@
 #include "VisiteurDessiner.h"
 #include "Rond.h"
 
+#define PI 3.14159265358979323846
+
 /**
  * @param xCentre
  * @param yCentre
@@ -49,6 +51,15 @@ return oss.str();
 	return new Rond(getCouleur(), oap, rapport * getRayon());
 
 }
+
+/*virtual*/ double Rond::aire() const {
+	double aire;
+	
+	aire = pow(getRayon(), 2) * PI;
+
+	return aire;
+}
+
 
 
 Vecteur2D Rond::getCentre() const

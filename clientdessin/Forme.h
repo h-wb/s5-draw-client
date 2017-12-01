@@ -40,6 +40,7 @@ public:
 	virtual operator string () const = 0;
 	virtual Forme * translation(const Vecteur2D & VectTrans) const = 0;
 	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const = 0;
+	virtual double aire() const = 0;
 
 };
 

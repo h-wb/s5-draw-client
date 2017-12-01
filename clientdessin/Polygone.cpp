@@ -42,6 +42,10 @@ void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+/*virtual*/ double Polygone::aire() const {
+	return 0;
+}
+
 void Polygone::Construction() {
 	
 		for (int i = 1; i < _vecteurs.size(); i++) {

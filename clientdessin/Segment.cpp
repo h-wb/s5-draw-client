@@ -60,6 +60,9 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 	return new Segment(getCouleur(), oap + point, obp + point);
 }
 
+/*virtual*/ double Segment::aire() const {
+	return 0;
+}
 
 Segment::operator string() const
 {
