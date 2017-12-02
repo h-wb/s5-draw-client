@@ -68,7 +68,7 @@ f3 = new Rond(2, u1, 120);
 //F.dessiner(new DessinerJava);
 ;
 f3->dessiner(new DessinerJava);
-tf2 = f3->rotation(centre, 90);
+tf2 = f3->rotation(centre, 10);
 tf2->dessiner(new DessinerJava);
 //tf1 = f3->homothetie(u3, 2);
 //tf1->dessiner(new DessinerJava);

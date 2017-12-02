@@ -116,9 +116,9 @@ const string Triangle::encoderFenetre() const
 		Cxprime = result * (_vecteurs[2].getX() - centre.getX()) - result2 * (_vecteurs[2].getY() - centre.getY()) + centre.getX();
 		Cyprime = result2 * (_vecteurs[2].getX() - centre.getX()) + result * (_vecteurs[2].getY() - centre.getY()) + centre.getY();
 
-		cote1 = Vecteur2D(Axprime, Ayprime);
-		cote2 = Vecteur2D(Bxprime, Byprime);
-		cote3 = Vecteur2D(Cxprime, Cyprime);
+		cote1 = Vecteur2D(round(Axprime), round(Ayprime));
+		cote2 = Vecteur2D(round(Bxprime), round(Byprime));
+		cote3 = Vecteur2D(round(Cxprime), round(Cyprime));
 
 		return new Triangle(getCouleur(),cote1,cote2,cote3);
 	}

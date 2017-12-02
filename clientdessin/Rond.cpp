@@ -85,7 +85,7 @@ return oss.str();
 		Centxprime = result * (_centre.getX() - centre.getX()) - result2 * (_centre.getY() - centre.getY()) + centre.getX();
 		Centyprime = result2 * (_centre.getX() - centre.getX()) + result * (_centre.getY() - centre.getY()) + centre.getY();
 
-		CentRot = Vecteur2D(Centxprime, Centyprime);
+		CentRot = Vecteur2D(round(Centxprime), round(Centyprime));
 
 		return new Rond(getCouleur(), CentRot, getRayon());
 	}

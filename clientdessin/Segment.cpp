@@ -120,7 +120,7 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 		Bxprime = result * (_fin.getX() - centre.getX()) - result2 * (_fin.getY() - centre.getY()) + centre.getX();
 		Byprime = result2 * (_fin.getX() - centre.getX()) + result * (_fin.getY() - centre.getY()) + centre.getY();
 
-		deb = Vecteur2D(Axprime, Ayprime);
+		deb = Vecteur2D(round(Axprime), round(Ayprime));
 		fin = Vecteur2D(Bxprime, Byprime);
 
 		return new Segment(getCouleur(), deb, fin);
