@@ -1,3 +1,4 @@
+#include <sstream>
 #include "Triangle.h"
 #include "VisiteurDessiner.h"
 
@@ -23,8 +24,73 @@ void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+const string Triangle::encoderForme() const
+{
+	ostringstream oss;
+	for (Segment s : _cotes) {
+		oss << s.encoderForme();
+	}
+	return oss.str();
+}
+
+const string Triangle::encoderFenetre() const
+{
+	ostringstream oss;
+	oss << "Triangle, " << 480 << ", " << 0 << ", " << 500 << ", " <<500 << "\r\n";
+	return oss.str();
+}
+
+
 /*virtual*/ Forme * Triangle::translation(const Vecteur2D & VectTrans) const {
 
-	//return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+	return new Triangle(getCouleur(), VectTrans + _vecteurs[0], VectTrans + _vecteurs[1], VectTrans + _vecteurs[2]);
 
 }
+
+/*virtual*/ Forme * Triangle::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	Vecteur2D oa, ob, oc, oap, obp, ocp;
+	oa = point - _vecteurs[0];
+	ob = point - _vecteurs[1];
+	oc = point - _vecteurs[2];
+
+	oap = oa * rapport;
+	obp = ob * rapport;
+	ocp = oc * rapport;
+
+	return new Triangle(getCouleur(), oap + point, obp + point, ocp + point);
+
+}
+
+/*virtual*/ double Triangle::aire() const {
+	double PuissanceAB, PuissanceAC, PuissanceBC;
+	double LongAB, LongAC, LongBC;
+	double S, aire;
+
+	PuissanceAB = pow((_vecteurs[1].getX() - _vecteurs[0].getX()), 2) + pow((_vecteurs[1].getY() - _vecteurs[0].getY()), 2);
+	LongAB = sqrt(PuissanceAB);
+
+	PuissanceAC = pow((_vecteurs[2].getX() - _vecteurs[0].getX()), 2) + pow((_vecteurs[2].getY() - _vecteurs[0].getY()), 2);
+	LongAC = sqrt(PuissanceAC);
+
+	PuissanceBC = pow((_vecteurs[2].getX() - _vecteurs[1].getX()), 2) + pow((_vecteurs[2].getY() - _vecteurs[1].getY()), 2);
+	LongBC = sqrt(PuissanceBC);
+
+	//Formule de héron qui permet de calculer la hauteur du triangle puis par la suite l'aire du triangle
+	//S = (a+b+c)/2 puis formule : aire = sqrt(S(S-a)(S-b)(S-c))
+
+	S = (LongAB + LongAC + LongBC) / 2;
+	aire = sqrt(S * (S - LongAB) * (S - LongAC) * (S - LongBC));
+
+	return aire;
+}
+
+
+/*Segment::operator string() const
+{
+	ostringstream oss;
+
+	oss << "Segment : " << "x = " << _debut << ", y = " << _fin;
+
+	return oss.str();
+}*/

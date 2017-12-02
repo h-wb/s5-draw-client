@@ -23,7 +23,11 @@ void dessiner(VisiteurDessiner * visiteurDessiner) const;
 
 operator string() const;
 virtual Forme * translation(const Vecteur2D & VectTrans) const;
+virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const;
+virtual double aire() const;
 
+const string encoderForme() const;
+const string encoderFenetre() const;
 
 Vecteur2D getCentre() const;
 void setCentre(Vecteur2D v);

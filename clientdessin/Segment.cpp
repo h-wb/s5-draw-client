@@ -36,6 +36,20 @@ void Segment::setFin(Vecteur2D fin)
 	_fin = fin;
 }
 
+const string Segment::encoderForme() const
+{
+	ostringstream oss;
+	oss  << "Segment, " << getCouleur() << ", " << getDebut() << ", " << getFin() << "\r\n";
+	return oss.str();
+}
+
+const string Segment::encoderFenetre() const
+{
+	ostringstream oss;
+	oss << "Segment, " << 960 << ", " << 0 << ", " << 500 << ", " << 500 << "\r\n";
+	return oss.str();
+}
+
 void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 {
 	return visiteurDessiner->visite(this);
@@ -48,6 +62,21 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+/*virtual*/ Forme * Segment::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	Vecteur2D oa, ob, oap, obp;
+	oa = point - _debut;
+	ob = point - _fin;
+
+	oap = oa * rapport;
+	obp = ob * rapport;
+
+	return new Segment(getCouleur(), oap + point, obp + point);
+}
+
+/*virtual*/ double Segment::aire() const {
+	return 0;
+}
 
 Segment::operator string() const
 {
@@ -59,8 +88,8 @@ Segment::operator string() const
 }
 
 
-ostream & operator << (ostream & os, const Segment * s)
+/*ostream & operator << (ostream & os, const Segment * s)
 {
 	return os;
-}
+}*/
 

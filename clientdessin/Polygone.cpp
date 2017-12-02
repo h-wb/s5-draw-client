@@ -31,8 +31,18 @@ void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 /*virtual*/ Forme * Polygone::translation(const Vecteur2D & VectTrans) const {
 
-	//return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+	return new Polygone(getCouleur());
 
+}
+
+/*virtual*/ Forme * Polygone::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	return new Polygone(getCouleur());
+
+}
+
+/*virtual*/ double Polygone::aire() const {
+	return 0;
 }
 
 void Polygone::Construction() {
@@ -57,15 +67,14 @@ Polygone::operator string() const
 	return oss.str();
 }
 
-/*Polygone Polygone::operator=(const Polygone & p)
+Polygone Polygone::operator=(const Polygone & p)
 {	
 	_vecteurs = p._vecteurs;
 	_cotes = p._cotes;
-	_nbCotes = p._nbCotes;
 	this->Construction();
 	return *this;
 
-}*/
+}
 
 Polygone & Polygone::operator+=(const Vecteur2D & v)
 {
@@ -73,12 +82,12 @@ Polygone & Polygone::operator+=(const Vecteur2D & v)
 	return *this;
 }
 
-/*Polygone Polygone::operator+(const Vecteur2D & v)
+Polygone Polygone::operator+(const Vecteur2D & v)
 {
 	Polygone p = Polygone(*this);
 	p += v;
 	return p;
-}*/
+}
 
 vector<Vecteur2D> Polygone::getVecteurs() const
 {
@@ -114,5 +123,22 @@ ostream & operator << (ostream & os, const Polygone * p)
 {
 	return os;
 }
+
+const string Polygone::encoderForme() const
+{
+	ostringstream oss;
+	for (Segment s : _cotes) {
+		oss << s.encoderForme();
+	}
+	return oss.str();
+}
+
+const string Polygone::encoderFenetre() const
+{
+	ostringstream oss;
+	oss << "Polygone, " << 0 << ", " << 0 << ", " << 500 << ", " << 500 << "\r\n";
+	return oss.str();
+}
+
 
 

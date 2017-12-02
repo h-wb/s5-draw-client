@@ -41,6 +41,23 @@ return oss.str();
 
 }
 
+/*virtual*/ Forme * Rond::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	Vecteur2D oa, oap;
+	oa = point - _centre;
+	oap = oa * rapport;
+	return new Rond(getCouleur(), oap, rapport * getRayon());
+
+}
+
+/*virtual*/ double Rond::aire() const {
+	double aire;
+
+	aire = pow(getRayon(), 2) * M_PI;
+
+	return aire;
+}
+
 
 Vecteur2D Rond::getCentre() const
 {
@@ -63,3 +80,16 @@ void Rond::setRayon(double rayon)
 	_rayon = rayon;
 }
 
+const string Rond::encoderForme() const
+{
+	ostringstream oss;
+	oss << "Rond, " << getCouleur() << ", " << getCentre() << ", " << getRayon() << ", " << getRayon() << "\r\n";
+	return oss.str();
+}
+
+const string Rond::encoderFenetre() const
+{
+	ostringstream oss;
+	oss << "Rond, " << 0 << ", " << 300 << ", " << 500 << ", " << 500 << "\r\n";
+	return oss.str();
+}

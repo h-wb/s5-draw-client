@@ -27,14 +27,19 @@ public:
 
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
+
 	virtual Forme * translation(const Vecteur2D & VectTrans) const;
+	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const;
+	virtual double aire() const;
 
 	operator string() const;
 
-	//Polygone& operator=(const Polygone &p);
+	Polygone operator=(const Polygone &p);
 	Polygone& operator+=(const Vecteur2D &v);
-	//Polygone& operator+(const Vecteur2D &v);
+	Polygone operator+(const Vecteur2D &v);
 
+	const string encoderForme() const;
+	const string encoderFenetre() const;
 
 	virtual vector<Vecteur2D> getVecteurs() const;
 	virtual void setVecteurs(vector<Vecteur2D> v);

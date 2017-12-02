@@ -59,7 +59,7 @@ void Vecteur2D::setY(double y)
 Vecteur2D::operator string() const
 {
 	ostringstream os;
-	os << "( " << _x << ", " << _y << ")";
+	os <<_x << ", " << _y;
 	return os.str();
 }
 

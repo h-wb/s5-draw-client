@@ -18,13 +18,17 @@ public:
 	Triangle(int couleur, const Vecteur2D& v1, const Vecteur2D& v2, const Vecteur2D& v3);
 	Triangle(Triangle& t);
 
+	const string encoderForme() const;
+	const string encoderFenetre() const;
 
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
 	virtual Forme * translation(const Vecteur2D & VectTrans) const;
+	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const;
+	virtual double aire() const;
 
 
-
+	//operator string() const;
 	friend ostream & operator << (ostream & os, const Polygone * p);
 };
 
