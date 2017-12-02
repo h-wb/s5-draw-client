@@ -82,6 +82,31 @@ FormeComposee FormeComposee::operator+(Forme * f)
 	return resultat;
 }
 
+/*virtual*/ Forme * FormeComposee::rotation(const Vecteur2D & centre, const double & angle) const {
+
+
+	if ((angle > 0) && (angle < 360)) {
+		
+		int i;
+		Forme *f1, *tf1;
+		FormeComposee fc(1);
+
+		for (i = 0; i < _formes.size(); i++) {
+			f1 = _formes[i];
+			tf1 = f1->rotation(centre, angle);
+			fc += tf1;
+		}
+
+		return new FormeComposee(fc);
+
+	}
+	else {
+		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
+	}
+
+}
+
+
 FormeComposee::operator string() const
 {
 	ostringstream oss;

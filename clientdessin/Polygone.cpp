@@ -58,7 +58,12 @@ void Polygone::Construction() {
 	
 }
 
+/*virtual*/ Forme * Polygone::rotation(const Vecteur2D & centre, const double & angle) const {
 
+
+	return new Polygone(getCouleur());
+
+}
 
 Polygone::operator string() const
 {

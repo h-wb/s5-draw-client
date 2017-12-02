@@ -85,6 +85,49 @@ const string Triangle::encoderFenetre() const
 	return aire;
 }
 
+/*virtual*/ Forme * Triangle::rotation(const Vecteur2D & centre, const double & angle) const {
+	if ((angle > 0) && (angle < 360)) {
+		double Axprime, Ayprime, Bxprime, Byprime, Cxprime, Cyprime;
+		double result, result2;
+		Vecteur2D cote1, cote2, cote3;
+
+		if ((angle != 90) || (angle != 270)) {
+			result = cos(angle * PI / 180.0);
+		}
+		else {
+			result = 0;
+		}
+
+
+		if ((angle != 180) || (angle != 360)) {
+			result2 = sin(angle * PI / 180.0);
+		}
+		else {
+			result2 = 0;
+		}
+
+
+		Axprime = result * (_vecteurs[0].getX() - centre.getX()) - result2 * (_vecteurs[0].getY() - centre.getY()) + centre.getX();
+		Ayprime = result2 * (_vecteurs[0].getX() - centre.getX()) + result * (_vecteurs[0].getY() - centre.getY()) + centre.getY();
+
+		Bxprime = result * (_vecteurs[1].getX() - centre.getX()) - result2 * (_vecteurs[1].getY() - centre.getY()) + centre.getX();
+		Byprime = result2 * (_vecteurs[1].getX() - centre.getX()) + result * (_vecteurs[1].getY() - centre.getY()) + centre.getY();
+
+		Cxprime = result * (_vecteurs[2].getX() - centre.getX()) - result2 * (_vecteurs[2].getY() - centre.getY()) + centre.getX();
+		Cyprime = result2 * (_vecteurs[2].getX() - centre.getX()) + result * (_vecteurs[2].getY() - centre.getY()) + centre.getY();
+
+		cote1 = Vecteur2D(Axprime, Ayprime);
+		cote2 = Vecteur2D(Bxprime, Byprime);
+		cote3 = Vecteur2D(Cxprime, Cyprime);
+
+		return new Triangle(getCouleur(),cote1,cote2,cote3);
+	}
+	else {
+		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
+	}
+
+}
+
 
 /*Segment::operator string() const
 {

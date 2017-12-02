@@ -41,14 +41,13 @@ cout << "test vecteurs 2D \n";
 
 Vecteur2D u1(100, 200), u2(500,400), u3(100, -100), u4(25,70), w, v1(35, -63), v3;
 
-Vecteur2D t1(100, 100), t2(80, 120), t3(80, 140), t4(100, 200), t5(400, 500), t6(160, 140), t7(160, 120), t8(140,100) ;
+Vecteur2D t1(100, 100), t2(80, 120), t3(80, 140), t4(100, 400), t5(300, 200), t6(160, 140), t7(160, 120), t8(140,100), centre(0,0) ;
 cout << " u1 = " << u1 << endl;
 
 Forme * f1, * f2, *f3, *tf1, *tf2;
 Forme *t;
-f2 = new Rond(300, 300, 30);
-f1 = new Segment(3,t4,t5);
-//f2= new Rond(5, u2, 250);
+//f2 = new Rond(300, 300, 30);
+//f1 = new Segment(3,t4,t5);
 f3 = new Rond(2, u1, 120);
 //f1 = new Polygone(5);
 //t = new Triangle(4, u1, u2, u3);
@@ -64,28 +63,28 @@ f3 = new Rond(2, u1, 120);
 //P = P + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
 //P = P +u1 + u2 + u3;
 //P.dessiner(new DessinerJava);
-FormeComposee F(4);
-F = F+f3+f2+f1;
+//FormeComposee F(4);
+//F = F+f3+f1;
 //F.dessiner(new DessinerJava);
-//tf2 = F.homothetie(u3, 2);
-//tf2->dessiner(new DessinerJava);
-//f3->dessiner(new DessinerJava);
+;
+f3->dessiner(new DessinerJava);
+tf2 = f3->rotation(centre, 90);
+tf2->dessiner(new DessinerJava);
 //tf1 = f3->homothetie(u3, 2);
 //tf1->dessiner(new DessinerJava);
 //cout << "Aire rond = " << f2->aire() << endl;
 //Polygone P(2);
 //P = P + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
 
-cout << "Aire de f1  = " << f1->aire() << endl;
-cout << "Aire de f2  = " << f2->aire() << endl;
-cout << "Aire de f3  = " << f3->aire() << endl;
-cout << "Aire du groupe  = " << F.aire() << endl;
+//f1->rotation(centre, 90);
 
 //cout << "f1 = " << f1 << endl;
 //cout << "f2 = " << f2 << endl;
 //cout << "f3 = " << f3 << endl;
 
-//f1->dessiner(new DessinerJava); // requête vers le serveur de dessin
+//f3->dessiner(new DessinerJava); // requête vers le serveur de dessin
+//tf1 = f3->rotation(centre, 90);
+//tf1->dessiner(new DessinerJava);
 //f2->dessiner(new DessinerJava);      // requête vers le serveur de dessin
 //f3->dessiner(new DessinerJava);
 

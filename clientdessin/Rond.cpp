@@ -58,6 +58,42 @@ return oss.str();
 	return aire;
 }
 
+/*virtual*/ Forme * Rond::rotation(const Vecteur2D & centre, const double & angle) const {
+
+
+	if ((angle > 0) && (angle < 360)) {
+		double Centxprime, Centyprime;
+		double result, result2;
+		Vecteur2D CentRot;
+
+		if ((angle != 90) || (angle != 270)) {
+			result = cos(angle * PI / 180.0);
+		}
+		else {
+			result = 0;
+		}
+
+
+		if ((angle != 180) || (angle != 360)) {
+			result2 = sin(angle * PI / 180.0);
+		}
+		else {
+			result2 = 0;
+		}
+
+
+		Centxprime = result * (_centre.getX() - centre.getX()) - result2 * (_centre.getY() - centre.getY()) + centre.getX();
+		Centyprime = result2 * (_centre.getX() - centre.getX()) + result * (_centre.getY() - centre.getY()) + centre.getY();
+
+		CentRot = Vecteur2D(Centxprime, Centyprime);
+
+		return new Rond(getCouleur(), CentRot, getRayon());
+	}
+	else {
+		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
+	}
+
+}
 
 Vecteur2D Rond::getCentre() const
 {

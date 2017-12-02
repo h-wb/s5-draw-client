@@ -9,6 +9,8 @@
 #include <math.h>
 
 
+#define PI 3.14159265
+
 #define black 0;
 #define blue 1;
 #define red 2;
@@ -46,6 +48,7 @@ public:
 
 	virtual Forme * translation(const Vecteur2D & VectTrans) const = 0;
 	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const = 0;
+	virtual Forme * rotation(const Vecteur2D & centre, const double & angle) const = 0;
 };
 
 ostream & operator << (ostream & os, const Forme * forme);
