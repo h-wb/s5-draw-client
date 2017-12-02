@@ -29,6 +29,7 @@ void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+//Translation fausse mais retour faux pour éviter les erreurs de compilo
 /*virtual*/ Forme * Polygone::translation(const Vecteur2D & VectTrans) const {
 
 	return new Polygone(getCouleur());

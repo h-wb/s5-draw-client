@@ -36,6 +36,10 @@ const Vecteur2D Vecteur2D::operator - () const
 	return Vecteur2D(-_x, -_y);
 }
 
+const Vecteur2D Vecteur2D::operator - (const Vecteur2D & u) const {
+	return Vecteur2D(u._x - _x, u._y - _y);
+}
+
 double Vecteur2D::getX() const
 {
 	return _x;

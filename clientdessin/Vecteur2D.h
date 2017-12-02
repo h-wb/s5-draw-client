@@ -25,6 +25,7 @@ public:
 	const Vecteur2D operator + (const Vecteur2D & u) const;
 	const Vecteur2D operator * (const double & a) const;
 	const Vecteur2D operator - () const;
+	const Vecteur2D operator - (const Vecteur2D & u) const;
 
 	double getX() const;
 	double getY() const;
