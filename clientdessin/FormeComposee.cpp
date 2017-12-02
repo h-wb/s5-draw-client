@@ -36,18 +36,50 @@ FormeComposee FormeComposee::operator+(Forme * f)
 
 /*virtual*/ Forme * FormeComposee::translation(const Vecteur2D & VectTrans) const {
 
-	return new FormeComposee(getCouleur());
+	int i;
+	Forme *f1, *tf1;
+	FormeComposee fc(1);
+
+	for (i = 0; i < _formes.size(); i++) {
+		f1 = _formes[i];
+		tf1 = f1->translation(VectTrans);
+		fc += tf1;
+	}
+
+	return new FormeComposee(fc);
 
 }
 
 /*virtual*/ Forme * FormeComposee::homothetie(const Vecteur2D & point, const double & rapport) const {
 
-	return new FormeComposee(getCouleur());
+	int i;
+	Forme *f1, *tf1;
+	FormeComposee fc(1);
+
+	for (i = 0; i < _formes.size(); i++) {
+		f1 = _formes[i];
+		tf1 = f1->homothetie(point, rapport);
+		fc += tf1;
+	}
+
+	return new FormeComposee(fc);
 
 }
 
 /*virtual*/ double FormeComposee::aire() const {
-	return 0;
+
+	int i;
+	double tmp, resultat = 0;
+	Forme *f1;
+	FormeComposee fc(1);
+	
+	for (i = 0; i < _formes.size(); i++) {
+		f1 = _formes[i];
+		tmp = f1->aire();
+		resultat += tmp;
+	}
+
+	return resultat;
 }
 
 FormeComposee::operator string() const

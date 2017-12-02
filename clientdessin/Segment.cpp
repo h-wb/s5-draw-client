@@ -71,6 +71,15 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 	oap = oa * rapport;
 	obp = ob * rapport;
 
+	/*cout << "O = " << point.getX() << " " << point.getY() << endl;
+	cout << "OA = " << oa.getX() << " " <<oa.getY() << endl;
+	cout << "OB = " << ob.getX() << " " << ob.getY() << endl;
+	cout << "OA = " << ob.getX() << " " << ob.getY() << endl;
+	cout << "OA prime = " << oap.getX() << " " << oap.getY() << endl;
+	cout << "OB prime = " << obp.getX() << " " << obp.getY() << endl;
+	cout << "Point A = " << oap + point << endl;
+	cout << "Point B = " << obp + point << endl;*/
+
 	return new Segment(getCouleur(), oap + point, obp + point);
 }
 

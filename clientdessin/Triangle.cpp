@@ -76,7 +76,7 @@ const string Triangle::encoderFenetre() const
 	PuissanceBC = pow((_vecteurs[2].getX() - _vecteurs[1].getX()), 2) + pow((_vecteurs[2].getY() - _vecteurs[1].getY()), 2);
 	LongBC = sqrt(PuissanceBC);
 
-	//Formule de héron qui permet de calculer la hauteur du triangle puis par la suite l'aire du triangle
+	//Formule de héron qui permet de calculer l'aire du triangle
 	//S = (a+b+c)/2 puis formule : aire = sqrt(S(S-a)(S-b)(S-c))
 
 	S = (LongAB + LongAC + LongBC) / 2;
