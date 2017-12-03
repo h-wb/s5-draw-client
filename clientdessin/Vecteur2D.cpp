@@ -16,6 +16,26 @@ Vecteur2D::~Vecteur2D()
 {
 }
 
+double Vecteur2D::getX() const
+{
+	return _x;
+}
+
+void Vecteur2D::setX(double x)
+{
+	_x = x;
+}
+
+double Vecteur2D::getY() const
+{
+	return _y;
+}
+
+void Vecteur2D::setY(double y)
+{
+	_y = y;
+}
+
 const Vecteur2D operator *(const double & a, const Vecteur2D & u)
 {
 	return u*a;
@@ -40,36 +60,9 @@ const Vecteur2D Vecteur2D::operator - (const Vecteur2D & u) const {
 	return Vecteur2D(u._x - _x, u._y - _y);
 }
 
-double Vecteur2D::getX() const
-{
-	return _x;
-}
-
-double Vecteur2D::getY() const
-{
-	return _y;
-}
-
-void Vecteur2D::setX(double x)
-{
-	_x = x;
-}
-
-void Vecteur2D::setY(double y)
-{
-	_y = y;
-}
-
-Vecteur2D::operator string() const
-{
-	ostringstream os;
-	os <<_x << ", " << _y;
-	return os.str();
-}
-
 ostream & operator << (ostream & os, const Vecteur2D & u)
 {
-	os << (string)u;
+	os << u._x << ", " << u._y;
 	return os;
 }
 

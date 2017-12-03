@@ -1,6 +1,6 @@
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 #include "Connexion.h"
-
-
 
 Connexion::Connexion()
 {
@@ -52,17 +52,6 @@ Connexion::Connexion(const string & adresseServeurDessin, const int portServeurD
 
 }
 
-void Connexion::envoyerRequete(const string requete)
-{
-	int r = send(sock, requete.c_str(), requete.length(), 0);             //------------------ envoi de la requête au serveur -------------------------------
-
-	if (r == SOCKET_ERROR)
-		throw Erreur("échec de l'envoi de la requête d'ouverture de fenêtre graphique");
-
-	cout << "requête d'ouverture de fenêtre graphique envoyée" << endl;
-
-}
-
 Connexion::~Connexion()
 {
 	int r = shutdown(sock, SD_BOTH);							// on coupe la connexion pour l'envoi et la réception
@@ -76,4 +65,15 @@ Connexion::~Connexion()
 														//if (r) throw Erreur("La fermeture du socket a échoué");
 
 	cout << "arrêt normal du client" << endl;
+}
+
+void Connexion::envoyerRequete(const string requete)
+{
+	int r = send(sock, requete.c_str(), requete.length(), 0);             //------------------ envoi de la requête au serveur -------------------------------
+
+	if (r == SOCKET_ERROR)
+		throw Erreur("échec de l'envoi de la requête");
+
+	cout << "requête envoyée" << endl;
+
 }

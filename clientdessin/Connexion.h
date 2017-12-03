@@ -11,12 +11,13 @@
 class Connexion
 {
 private:
-	SOCKET sock;  // informations concernant le socket à créer : famille d'adresses acceptées, mode connecté ou non, protocole 
-	SOCKADDR_IN sockaddr; // informations concernant le serveur avec lequel on va communiquer
+	SOCKET sock;
+	SOCKADDR_IN sockaddr;
 public:
 	Connexion();
-	~Connexion();
 	Connexion(const string & adresseServeurDessin, const int portServeurDessin);
+	~Connexion();
+
 	void envoyerRequete(const string);
 };
 

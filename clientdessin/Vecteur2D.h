@@ -21,21 +21,15 @@ public:
 	Vecteur2D(const char * s);
 	virtual ~Vecteur2D();
 
+	double getX() const;
+	void setX(double x);
+	double getY() const;
+	void setY(double y);
 
 	const Vecteur2D operator + (const Vecteur2D & u) const;
 	const Vecteur2D operator * (const double & a) const;
 	const Vecteur2D operator - () const;
 	const Vecteur2D operator - (const Vecteur2D & u) const;
-
-	double getX() const;
-	double getY() const;
-	void setX(double x);
-	void setY(double y);
-
-	const Vecteur2D translation(const Vecteur2D & VectTrans, const Vecteur2D & u);
-
-	operator string() const;
 	
+	friend ostream& operator<<(ostream &o, const Vecteur2D &v);
 };
-
-ostream& operator<<(ostream &o, const Vecteur2D &v);

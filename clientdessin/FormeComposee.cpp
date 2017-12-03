@@ -4,14 +4,31 @@
 
 
 
-FormeComposee::FormeComposee(int couleur) :Forme(couleur)
+FormeComposee::FormeComposee(const int couleur) :Forme(couleur)
 {
 
 }
 
-FormeComposee::FormeComposee(FormeComposee & f) : Forme(f)
+FormeComposee::FormeComposee(const FormeComposee & f) : Forme(f)
 {
 	_formes = f._formes;
+}
+
+FormeComposee::~FormeComposee()
+{
+	/*for (Forme * f : _formes) {
+		delete(f);
+	}*/
+}
+
+vector<Forme*> FormeComposee::getFormes() const
+{
+	return _formes;
+}
+
+void FormeComposee::setFormes(vector<Forme*> v)
+{
+	_formes = v;
 }
 
 FormeComposee FormeComposee::operator=(const FormeComposee & f)
@@ -26,54 +43,72 @@ FormeComposee & FormeComposee::operator+=(Forme * f)
 	return *this;
 }
 
-FormeComposee FormeComposee::operator+(Forme * f)
+FormeComposee FormeComposee::operator+(const Forme & f)
 {
 	FormeComposee fc = FormeComposee(*this);
-	fc += f;
+	fc += f.forme();
 	return fc;
 
 }
 
-/*virtual*/ Forme * FormeComposee::translation(const Vecteur2D & VectTrans) const {
+Forme * FormeComposee::translation(const Vecteur2D & VectTrans) const {
 
 	return new FormeComposee(getCouleur());
 
 }
 
-/*virtual*/ Forme * FormeComposee::homothetie(const Vecteur2D & point, const double & rapport) const {
+Forme * FormeComposee::homothetie(const Vecteur2D & point, const double & rapport) const {
 
 	return new FormeComposee(getCouleur());
 
+
 }
 
-/*virtual*/ double FormeComposee::aire() const {
-	return 0;
+Forme * FormeComposee::rotation(const Vecteur2D & centre, const double & angle) const {
+
+
+	if ((angle > 0) && (angle < 360)) {
+
+		int i;
+		Forme *f1, *tf1;
+		FormeComposee fc(1);
+
+		for (i = 0; i < _formes.size(); i++) {
+			f1 = _formes[i];
+			tf1 = f1->rotation(centre, angle);
+			fc += tf1;
+		}
+
+		return new FormeComposee(fc);
+
+	}
+	else {
+		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
+	}
+
 }
 
-FormeComposee::operator string() const
+Forme * FormeComposee::forme() const
 {
-	ostringstream oss;
+	return new FormeComposee(*this);;
+}
 
-	//oss << "Polygone : " << "Centre = " << _centre << ", rayon = " << _rayon;
-	oss << "Test";
-	return oss.str();
+double FormeComposee::aire() const {
+	int i;
+	double tmp, resultat = 0;
+	Forme *f1;
+	FormeComposee fc(1);
+
+	for (i = 0; i < _formes.size(); i++) {
+		f1 = _formes[i];
+		tmp = f1->aire();
+		resultat += tmp;
+	}
+
+	return resultat;
 }
 
 
-void FormeComposee::dessiner(VisiteurDessiner * visiteurDessiner) const
-{
-	return visiteurDessiner->visite(this);
-}
-
-vector<Forme*> FormeComposee::getFormes() const
-{
-	return _formes;
-}
-
-void FormeComposee::setFormes(vector<Forme*> v)
-{
-	_formes = v;
-}
 
 const string FormeComposee::encoderForme() const
 {
@@ -89,4 +124,14 @@ const string FormeComposee::encoderFenetre() const
 	ostringstream oss;
 	oss << "Forme Composée, " << 480 << ", " << 300 << ", " << 500 << ", " << 500 << "\r\n";
 	return oss.str();
+}
+
+void FormeComposee::dessiner(VisiteurDessiner * visiteurDessiner) const
+{
+	return visiteurDessiner->visite(this);
+}
+
+ostream & operator << (ostream & os, const FormeComposee * f)
+{
+	return os << "Forme Composée : " << endl << f->encoderForme() << "\n";
 }

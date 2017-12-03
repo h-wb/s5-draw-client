@@ -24,6 +24,5 @@ private:
 	Singleton();
 	Singleton(Singleton const&);
 	~Singleton();
-	void operator=(Singleton const&);
 };
 

@@ -1,11 +1,4 @@
 #pragma once
-/*
- * ClientDessin.h
- *
- *  Created on: 26 août 2014
- *      Author: Dominique
- */
-
 
 #include <WinSock2.h>
 #include <string>

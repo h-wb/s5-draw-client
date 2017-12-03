@@ -1,63 +1,19 @@
-#include <sstream>
 #include "VisiteurDessiner.h"
 #include "Rond.h"
 
-/**
- * @param xCentre
- * @param yCentre
- * @param rayon
- */
-
-
-
-Rond::Rond(int couleur, Vecteur2D centre, double rayon):Forme(couleur), _centre(centre)
+Rond::Rond(const int couleur, const Vecteur2D centre, const double rayon):Forme(couleur), _centre(centre)
 {
 	_rayon = rayon;
 }
 
-Rond::Rond(Rond & r):Forme(r), _centre(r._centre)
+Rond::Rond(const Rond & r):Forme(r), _centre(r._centre)
 {
 	_rayon = r._rayon;
 }
 
-void Rond::dessiner( VisiteurDessiner * visiteurDessiner) const
+Rond::~Rond()
 {
-	return visiteurDessiner->visite(this);
-
 }
-
-Rond::operator string() const
-{
-ostringstream oss;
-
-oss << "Rond : "<<"Centre = " << _centre <<", rayon = " << _rayon;
-
-return oss.str();
-}
-
-/*virtual*/ Forme * Rond::translation(const Vecteur2D & VectTrans) const {
-
-	return new Rond(getCouleur(), VectTrans + _centre, getRayon());
-
-}
-
-/*virtual*/ Forme * Rond::homothetie(const Vecteur2D & point, const double & rapport) const {
-
-	Vecteur2D oa, oap;
-	oa = point - _centre;
-	oap = oa * rapport;
-	return new Rond(getCouleur(), oap, rapport * getRayon());
-
-}
-
-/*virtual*/ double Rond::aire() const {
-	double aire;
-
-	aire = pow(getRayon(), 2) * M_PI;
-
-	return aire;
-}
-
 
 Vecteur2D Rond::getCentre() const
 {
@@ -74,10 +30,72 @@ double Rond::getRayon() const
 	return _rayon;
 }
 
-
 void Rond::setRayon(double rayon)
 {
 	_rayon = rayon;
+}
+
+Forme * Rond::translation(const Vecteur2D & VectTrans) const {
+
+	return new Rond(getCouleur(), VectTrans + _centre, getRayon());
+
+}
+
+Forme * Rond::homothetie(const Vecteur2D & point, const double & rapport) const {
+
+	Vecteur2D oa, oap;
+	oa = point - _centre;
+	oap = oa * rapport;
+	return new Rond(getCouleur(), oap, rapport * getRayon());
+
+}
+
+Forme * Rond::rotation(const Vecteur2D & centre, const double & angle) const {
+
+
+	if ((angle > 0) && (angle < 360)) {
+		double Centxprime, Centyprime;
+		double result, result2;
+		Vecteur2D CentRot;
+
+		if ((angle != 90) || (angle != 270)) {
+			result = cos(angle * M_PI / 180.0);
+		}
+		else {
+			result = 0;
+		}
+
+
+		if ((angle != 180) || (angle != 360)) {
+			result2 = sin(angle * M_PI / 180.0);
+		}
+		else {
+			result2 = 0;
+		}
+
+
+		Centxprime = result * (_centre.getX() - centre.getX()) - result2 * (_centre.getY() - centre.getY()) + centre.getX();
+		Centyprime = result2 * (_centre.getX() - centre.getX()) + result * (_centre.getY() - centre.getY()) + centre.getY();
+
+		CentRot = Vecteur2D(round(Centxprime), round(Centyprime));
+
+		return new Rond(getCouleur(), CentRot, getRayon());
+	}
+	else {
+		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
+	}
+
+}
+
+Forme * Rond::forme() const
+{
+	return new Rond(*this);;
+}
+
+double Rond::aire() const {
+	double aire;
+	aire = pow(getRayon(), 2) * M_PI;
+	return aire;
 }
 
 const string Rond::encoderForme() const
@@ -93,3 +111,24 @@ const string Rond::encoderFenetre() const
 	oss << "Rond, " << 0 << ", " << 300 << ", " << 500 << ", " << 500 << "\r\n";
 	return oss.str();
 }
+
+void Rond::dessiner( VisiteurDessiner * visiteurDessiner) const
+{
+	return visiteurDessiner->visite(this);
+
+}
+
+ostream & operator << (ostream & os, const Rond * r)
+{
+	return os << r->encoderForme() << "\n";
+}
+
+
+
+
+
+
+
+
+
+
