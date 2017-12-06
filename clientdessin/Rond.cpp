@@ -35,25 +35,30 @@ void Rond::setRayon(double rayon)
 	_rayon = rayon;
 }
 
-Forme * Rond::translation(const Vecteur2D & VectTrans) const {
+Forme * Rond::translation(const Vecteur2D & VectTrans){
 
-	return new Rond(getCouleur(), VectTrans + _centre, getRayon());
+	//return new Rond(getCouleur(), VectTrans + _centre, getRayon());
+	_centre.translation(VectTrans);
+	return this;
 
 }
 
-Forme * Rond::homothetie(const Vecteur2D & point, const double & rapport) const {
+Forme * Rond::homothetie(const Vecteur2D & point, const double & rapport) {
 
-	Vecteur2D oa, oap;
+	/*Vecteur2D oa, oap;
 	oa = point - _centre;
 	oap = oa * rapport;
-	return new Rond(getCouleur(), oap, rapport * getRayon());
+	return new Rond(getCouleur(), oap, rapport * getRayon());*/
+	_centre.homothetie(point, rapport);
+	_rayon *= rapport;
+	return this;
 
 }
 
-Forme * Rond::rotation(const Vecteur2D & centre, const double & angle) const {
+Forme * Rond::rotation(const Vecteur2D & centre, const double & angle){
 
 
-	if ((angle > 0) && (angle < 360)) {
+	/*if ((angle > 0) && (angle < 360)) {
 		double Centxprime, Centyprime;
 		double result, result2;
 		Vecteur2D CentRot;
@@ -83,7 +88,10 @@ Forme * Rond::rotation(const Vecteur2D & centre, const double & angle) const {
 	}
 	else {
 		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
-	}
+	}*/
+
+	_centre.rotation(centre, angle);
+	return this;
 
 }
 

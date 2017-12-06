@@ -36,27 +36,34 @@ void Segment::setFin(Vecteur2D fin)
 	_fin = fin;
 }
 
-Forme * Segment::translation(const Vecteur2D & VectTrans) const {
+Forme * Segment::translation(const Vecteur2D & VectTrans){
 
-	return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
-
+	//return new Segment(getCouleur(), VectTrans + _debut, VectTrans + _fin);
+	_debut.translation(VectTrans);
+	_fin.translation(VectTrans);
+	return this;
 }
 
-Forme * Segment::homothetie(const Vecteur2D & point, const double & rapport) const {
+Forme * Segment::homothetie(const Vecteur2D & point, const double & rapport){
 
-	Vecteur2D oa, ob, oap, obp;
+/*	Vecteur2D oa, ob, oap, obp;
 	oa = point - _debut;
 	ob = point - _fin;
 
 	oap = oa * rapport;
 	obp = ob * rapport;
 
-	return new Segment(getCouleur(), oap + point, obp + point);
+	return new Segment(getCouleur(), oap + point, obp + point);*/
+
+	_debut.homothetie(point, rapport);
+	_fin.homothetie(point, rapport);
+	return this;
+	
 }
 
-Forme * Segment::rotation(const Vecteur2D & centre, const double & angle) const {
+Forme * Segment::rotation(const Vecteur2D & centre, const double & angle) {
 
-	if ((angle > 0) && (angle < 360)) {
+	/*if ((angle > 0) && (angle < 360)) {
 		double Axprime, Ayprime, Bxprime, Byprime;
 		double result, result2;
 		Vecteur2D deb, fin;
@@ -93,8 +100,11 @@ Forme * Segment::rotation(const Vecteur2D & centre, const double & angle) const 
 	}
 	else {
 		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
-	}
+	}*/
 
+	_debut.rotation(centre, angle);
+	_fin.rotation(centre, angle);
+	return this;
 }
 
 Forme * Segment::forme() const

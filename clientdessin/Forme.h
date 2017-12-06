@@ -34,9 +34,9 @@ public:
 	virtual int getCouleur() const;
 	virtual void setCouleur(int couleur);
 
-	virtual Forme * translation(const Vecteur2D & VectTrans) const = 0;
-	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const = 0;
-	virtual Forme * rotation(const Vecteur2D & centre, const double & angle) const = 0;
+	virtual Forme * translation(const Vecteur2D & VectTrans)  = 0;
+	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport)  = 0;
+	virtual Forme * rotation(const Vecteur2D & centre, const double & angle)  = 0;
 	virtual Forme * forme() const = 0;
 
 	virtual  void dessiner( VisiteurDessiner * visiteurDessiner) const = 0;

@@ -30,6 +30,8 @@ public:
 	const Vecteur2D operator * (const double & a) const;
 	const Vecteur2D operator - () const;
 	const Vecteur2D operator - (const Vecteur2D & u) const;
+	Vecteur2D operator += (const Vecteur2D & u);
+
 
 	Vecteur2D& translation(const Vecteur2D & VectTrans);
 	Vecteur2D& homothetie(const Vecteur2D & point, const double & rapport);

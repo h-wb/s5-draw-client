@@ -70,20 +70,31 @@ Polygone Polygone::operator+(const Vecteur2D & v)
 	return p;
 }
 
-Forme * Polygone::translation(const Vecteur2D & VectTrans) const {
+Forme * Polygone::translation(const Vecteur2D & VectTrans ){
 
-	return new Polygone(getCouleur());
+
+	for (int i = 0; i < _cotes.size(); i++) {
+		_cotes[i].translation(VectTrans);
+	}
+	return this;
+
 }
 
-Forme * Polygone::homothetie(const Vecteur2D & point, const double & rapport) const {
-
-	return new Polygone(getCouleur());
+Forme * Polygone::homothetie(const Vecteur2D & point, const double & rapport) {
+	
+	for (int i = 0; i < _cotes.size(); i++) {
+		_cotes[i].homothetie(point, rapport);
+	}
+	return this;
 }
 
-Forme * Polygone::rotation(const Vecteur2D & centre, const double & angle) const {
+Forme * Polygone::rotation(const Vecteur2D & centre, const double & angle)  {
 
 
-	return new Polygone(getCouleur());
+	for (int i = 0; i < _cotes.size(); i++) {
+		_cotes[i].rotation(centre, angle);
+	}
+	return this;
 
 }
 

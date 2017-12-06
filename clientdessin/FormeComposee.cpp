@@ -51,23 +51,29 @@ FormeComposee FormeComposee::operator+(const Forme & f)
 
 }
 
-Forme * FormeComposee::translation(const Vecteur2D & VectTrans) const {
+Forme * FormeComposee::translation(const Vecteur2D & VectTrans) {
 
-	return new FormeComposee(getCouleur());
-
-}
-
-Forme * FormeComposee::homothetie(const Vecteur2D & point, const double & rapport) const {
-
-	return new FormeComposee(getCouleur());
-
+	for (int i = 0; i < _formes.size(); i++) {
+		_formes[i]->translation(VectTrans);
+	}
+	return this;
 
 }
 
-Forme * FormeComposee::rotation(const Vecteur2D & centre, const double & angle) const {
+Forme * FormeComposee::homothetie(const Vecteur2D & point, const double & rapport){
+
+	for (int i = 0; i < _formes.size(); i++) {
+		_formes[i]->homothetie(point, rapport);
+	}
+	return this;
 
 
-	if ((angle > 0) && (angle < 360)) {
+}
+
+Forme * FormeComposee::rotation(const Vecteur2D & centre, const double & angle){
+
+
+	/*if ((angle > 0) && (angle < 360)) {
 
 		int i;
 		Forme *f1, *tf1;
@@ -84,7 +90,11 @@ Forme * FormeComposee::rotation(const Vecteur2D & centre, const double & angle) 
 	}
 	else {
 		throw invalid_argument("Veuillez entrer un angle entre 0 et 360");
+	}*/
+	for (int i = 0; i < _formes.size(); i++) {
+		_formes[i]->rotation(centre, angle);
 	}
+	return this;
 
 }
 

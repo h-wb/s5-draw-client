@@ -25,9 +25,9 @@ public:
 	Polygone& operator+=(const Vecteur2D &v);
 	Polygone operator+(const Vecteur2D &v);
 
-	virtual Forme * translation(const Vecteur2D & VectTrans) const;
-	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const;
-	virtual Forme * rotation(const Vecteur2D & centre, const double & angle) const;
+	virtual Forme * translation(const Vecteur2D & VectTrans);
+	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport);
+	virtual Forme * rotation(const Vecteur2D & centre, const double & angle);
 	virtual Forme * forme() const;
 	virtual double aire() const;
 	void Construction();

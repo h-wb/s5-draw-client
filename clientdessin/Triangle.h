@@ -13,9 +13,6 @@ public:
 	Triangle(const Triangle& t);
 	virtual ~Triangle();
 
-	virtual Forme * translation(const Vecteur2D & VectTrans) const;
-	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const;
-	virtual Forme * rotation(const Vecteur2D & centre, const double & angle) const;
 	virtual Forme * forme() const;
 	virtual double aire() const;
 

@@ -16,9 +16,9 @@ public:
 	double getRayon() const;
 	void setRayon(double);
 
-	virtual Forme * translation(const Vecteur2D & VectTrans) const;
-	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport) const;
-	virtual Forme * rotation(const Vecteur2D & centre, const double & angle) const;
+	virtual Forme * translation(const Vecteur2D & VectTrans);
+	virtual Forme * homothetie(const Vecteur2D & point, const double & rapport);
+	virtual Forme * rotation(const Vecteur2D & centre, const double & angle);
 	virtual Forme * forme() const;
 	virtual double aire() const;
 

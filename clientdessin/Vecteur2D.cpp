@@ -60,19 +60,33 @@ const Vecteur2D Vecteur2D::operator - (const Vecteur2D & u) const {
 	return Vecteur2D(u._x - _x, u._y - _y);
 }
 
+Vecteur2D Vecteur2D::operator+=(const Vecteur2D & u)
+{
+	_x += u._x;
+	_y += u._y;
+	return *this;
+
+}
+
 Vecteur2D & Vecteur2D::translation(const Vecteur2D & VectTrans)
 {
-	// TODO: insérer une instruction return ici
+	*this += VectTrans;
+	return *this;
+
 }
 
 Vecteur2D & Vecteur2D::homothetie(const Vecteur2D & point, const double & rapport)
 {
-	// TODO: insérer une instruction return ici
+	_x = (_x - point._x) * rapport + point._x;
+	_y = (_y - point._y) * rapport + point._y;
+	return *this;
 }
 
 Vecteur2D & Vecteur2D::rotation(const Vecteur2D & centre, const double & angle)
 {
-	// TODO: insérer une instruction return ici
+	_x = (int)(centre._x + _x * cos(angle) - centre._y *sin(angle));
+	_y = (int)(centre._x + _x * sin(angle) - centre._y *cos(angle));
+	return *this;
 }
 
 ostream & operator << (ostream & os, const Vecteur2D & u)
