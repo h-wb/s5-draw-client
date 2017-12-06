@@ -50,6 +50,8 @@ Forme * Rond::homothetie(const Vecteur2D & point, const double & rapport) const 
 
 }
 
+
+
 Forme * Rond::rotation(const Vecteur2D & centre, const double & angle) const {
 
 
@@ -116,6 +118,11 @@ void Rond::dessiner( VisiteurDessiner * visiteurDessiner) const
 {
 	return visiteurDessiner->visite(this);
 
+}
+
+void Rond::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
+{
+	
 }
 
 ostream & operator << (ostream & os, const Rond * r)

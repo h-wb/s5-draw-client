@@ -129,6 +129,10 @@ void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+void Polygone::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
+{
+}
+
 ostream & operator << (ostream & os, const Polygone * p)
 {
 	return os << "Polygone : " << endl << p->encoderForme() << "\n";

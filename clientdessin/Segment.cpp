@@ -125,6 +125,10 @@ void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 	return visiteurDessiner->visite(this);
 }
 
+void Segment::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
+{
+}
+
 ostream & operator << (ostream & os, const Segment * s)
 {
 	return os << s->encoderForme() << "\n";

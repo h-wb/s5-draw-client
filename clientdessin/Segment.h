@@ -29,7 +29,7 @@ public:
 	
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;	
-
+	void sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const;
 	friend ostream & operator << (ostream & os, const Segment * s);
 };
 

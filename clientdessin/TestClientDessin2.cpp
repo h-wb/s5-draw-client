@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "Forme.h"
 #include "Rond.h"
@@ -24,8 +25,8 @@ Polygone p(2);
 FormeComposee f(4);
 
 
-
-/*cout << t << endl;
+/*
+cout << t << endl;
 p = p + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
 f = f + r + s + t + p;
 
@@ -40,7 +41,7 @@ cout << &p;
 f.dessiner(new DessinerJava);
 cout << &f;*/
 
-r.dessiner(new DessinerJava);
+//r.dessiner(new DessinerJava);
 }
 catch(Erreur e)
 {

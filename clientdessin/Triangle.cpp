@@ -136,6 +136,10 @@ void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 
 }
 
+void Triangle::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
+{
+}
+
 ostream & operator << (ostream & os, const Triangle * t)
 {
 	return os << "Triangle : " << endl << t->encoderForme() << "\n";
