@@ -1,11 +1,11 @@
 #pragma once
+#include <time.h>
 #include "Forme.h"
 #include "Rond.h"
 #include "Segment.h"
 #include "Polygone.h"
 #include "Triangle.h"
 #include "FormeComposee.h"
-
 
 class VisiteurSauvegarde
 {

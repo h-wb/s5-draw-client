@@ -1,4 +1,5 @@
 #include "VisiteurDessiner.h"
+#include "SauvegarderFormeTXT.h"
 #include "Rond.h"
 
 Rond::Rond(const int couleur, const Vecteur2D centre, const double rayon):Forme(couleur), _centre(centre)

@@ -26,6 +26,6 @@ public:
 	const string encoderFenetre() const;
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
-	void sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const;
+	//void sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const;
 	friend ostream & operator << (ostream & os, const Rond * r);
 };

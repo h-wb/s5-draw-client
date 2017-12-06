@@ -43,8 +43,9 @@ public:
 	virtual  void dessiner( VisiteurDessiner * visiteurDessiner) const = 0;
 	virtual const string encoderForme() const = 0;
 	virtual const string encoderFenetre() const = 0;
+	//virtual const string conversion() const = 0;
 	virtual double aire() const = 0;
-	virtual void sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const = 0;
+	//virtual void sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const = 0;
 	
 	friend ostream & operator << (ostream & os, const Forme * f);
 };

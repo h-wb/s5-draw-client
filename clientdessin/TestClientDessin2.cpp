@@ -12,6 +12,7 @@
 #include "Polygone.h"
 #include "Triangle.h"
 #include "FormeComposee.h"
+#include "SauvegarderFormeTXT.h"
 
 using namespace std;
 
@@ -31,19 +32,7 @@ FormeComposee f(4);
 p = p + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
 f = f + r + s + t + p;
 
-/*******************SAUVEGARDE*************************
-/*string save = "./sauvegarde/test.txt";
-
-ofstream file1;
-file1.open(save);
-cout << "ouverture reussie" << endl;
-file1 << "j'écris dans un file\n";
-cout << "ecriture reussie" << endl;
-file1.close();
-cout << "fichier fermee" << endl;
-*/
-
-
+/*******************SAUVEGARDE**************************/
 
 
 /*******************TEST SEGMENT*************************
@@ -61,9 +50,13 @@ s.rotation(v3, 10);
 s.dessiner(new DessinerJava);
 cout << &s;*/
 
-/*******************TEST ROND*************************
+/*******************TEST ROND**************************/
 r.dessiner(new DessinerJava);
 cout << &r;
+
+SauvegarderFormeTXT* test = new SauvegarderFormeTXT();
+test->visite(&r);
+
 
 r.translation(v1);
 r.dessiner(new DessinerJava);
@@ -75,7 +68,7 @@ cout << &r;
 
 r.rotation(v3, 180);
 r.dessiner(new DessinerJava);
-cout << &r;*/
+cout << &r;
 
 
 /*******************TEST POLYGONE************************
@@ -116,7 +109,16 @@ cout << &f;
 
 f.translation(v1);
 f.dessiner(new DessinerJava);
-cout << &f;*/
+cout << &f;
+
+f.homothetie(v1);
+f.dessiner(new DessinerJava);
+cout << &f; 
+
+f.rotation(v1);
+f.dessiner(new DessinerJava);
+cout << &f; */
+
 
 }
 catch(Erreur e)
