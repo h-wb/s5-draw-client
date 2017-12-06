@@ -9,7 +9,7 @@ SauvegarderFormeTXT::SauvegarderFormeTXT(){
 
 void SauvegarderFormeTXT::visite(const Rond * forme) const
 {
-	forme->sauvegarder();
+	
 }
 
 void SauvegarderFormeTXT::visite(const Segment * forme) const
