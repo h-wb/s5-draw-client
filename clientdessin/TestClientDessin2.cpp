@@ -1,4 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <fstream>
+#include <ctime>
+#include <time.h>
 #include "Forme.h"
 #include "Rond.h"
 #include "DessinerJava.h"
@@ -26,6 +30,19 @@ FormeComposee f(4);
 
 p = p + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
 f = f + r + s + t + p;
+
+/*******************SAUVEGARDE*************************
+/*string save = "./sauvegarde/test.txt";
+
+ofstream file1;
+file1.open(save);
+cout << "ouverture reussie" << endl;
+file1 << "j'écris dans un file\n";
+cout << "ecriture reussie" << endl;
+file1.close();
+cout << "fichier fermee" << endl;
+*/
+
 
 
 
@@ -99,16 +116,7 @@ cout << &f;
 
 f.translation(v1);
 f.dessiner(new DessinerJava);
-cout << &f;
-
-f.homothetie(v1, 2);
-f.dessiner(new DessinerJava);
-cout << &f;
-
-f.rotation(v3, 180);
-f.dessiner(new DessinerJava);
 cout << &f;*/
-
 
 }
 catch(Erreur e)
