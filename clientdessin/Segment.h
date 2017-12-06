@@ -22,6 +22,7 @@ public:
 	virtual Forme * rotation(const Vecteur2D & centre, const double & angle) const;
 	virtual Forme * forme() const;
 	virtual double aire() const;
+	//test
 	
 	const string encoderForme() const;
 	const string encoderFenetre() const;
