@@ -62,16 +62,19 @@ const Vecteur2D Vecteur2D::operator - (const Vecteur2D & u) const {
 
 Vecteur2D & Vecteur2D::translation(const Vecteur2D & VectTrans)
 {
+	return Vecteur2D(1,6);
 	// TODO: insérer une instruction return ici
 }
 
 Vecteur2D & Vecteur2D::homothetie(const Vecteur2D & point, const double & rapport)
 {
+	return Vecteur2D(2,7);
 	// TODO: insérer une instruction return ici
 }
 
 Vecteur2D & Vecteur2D::rotation(const Vecteur2D & centre, const double & angle)
 {
+	return Vecteur2D(3, 8);
 	// TODO: insérer une instruction return ici
 }
 
