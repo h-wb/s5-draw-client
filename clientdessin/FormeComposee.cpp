@@ -141,6 +141,10 @@ void FormeComposee::dessiner(VisiteurDessiner * visiteurDessiner) const
 	return visiteurDessiner->visite(this);
 }
 
+void FormeComposee::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
+{
+}
+
 ostream & operator << (ostream & os, const FormeComposee * f)
 {
 	return os << "Forme Composée : " << endl << f->encoderForme() << "\n";
