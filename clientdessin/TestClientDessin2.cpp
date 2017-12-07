@@ -59,7 +59,7 @@ cout << &r;
 test->visite(&r);
 
 
-r.translation(v1);
+/*r.translation(v1);
 r.dessiner(new DessinerJava);
 cout << &r;
 
@@ -70,7 +70,6 @@ cout << &r;
 r.rotation(v3, 180);
 r.dessiner(new DessinerJava);
 cout << &r;
-*/
 
 /*******************TEST POLYGONE************************
 p.dessiner(new DessinerJava);
