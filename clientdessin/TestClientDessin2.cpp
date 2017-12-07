@@ -13,6 +13,7 @@
 #include "Triangle.h"
 #include "FormeComposee.h"
 #include "SauvegarderFormeTXT.h"
+#include "SauvegardeFormeJSON.h"
 
 using namespace std;
 
@@ -31,11 +32,16 @@ Polygone p(2);
 FormeComposee f(4);
 
 p = p + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
-f = f + r + s + t + p;
+f = f + r + s;
 
 /*******************SAUVEGARDE**************************/
+SauvegarderFormeJSON* test2 = new SauvegarderFormeJSON();
 
-
+//ATTENTION NE PAS FAIRE LES 3 EN MEME TEMPS SINON TOUT SERA DANS LE MEME FICHIER (date, heure, seconde etc... identique)
+test2->visite(&f);
+test2->visite(&t);
+test2->visite(&p);
+	
 /*******************TEST SEGMENT*************************
 s.dessiner(new DessinerJava);
 cout << &s;
@@ -105,7 +111,7 @@ t.dessiner(new DessinerJava);
 cout << &t;*/
 
 /*******************TEST FORME COMPOSEE**************************/
-f.dessiner(new DessinerJava);
+/*f.dessiner(new DessinerJava);
 cout << &f;
 
 f.translation(v1);
@@ -120,7 +126,7 @@ f.rotation(v3, 180);
 f.dessiner(new DessinerJava);
 cout << &f; 
 
-test->visite(&f);
+test->visite(&f);*/
 
 }
 catch(Erreur e)

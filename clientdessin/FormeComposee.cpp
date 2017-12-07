@@ -1,6 +1,8 @@
 #include <sstream>
 #include "FormeComposee.h"
 #include "VisiteurDessiner.h"
+#include "VisiteurSauvegarde.h"
+#include "SauvegardeFormeJSON.h"
 
 
 
@@ -129,6 +131,8 @@ const string FormeComposee::encoderForme() const
 	return oss.str();
 }
 
+
+
 const string FormeComposee::encoderFenetre() const
 {
 	ostringstream oss;
@@ -136,13 +140,20 @@ const string FormeComposee::encoderFenetre() const
 	return oss.str();
 }
 
+void FormeComposee::sauvegardeJson() const
+{
+}
+
 void FormeComposee::dessiner(VisiteurDessiner * visiteurDessiner) const
 {
 	return visiteurDessiner->visite(this);
 }
 
-void FormeComposee::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
+const void FormeComposee::sauvegardeFormeComposee() const
 {
+	for (Forme * f : _formes) {
+		f->sauvegardeJson();
+	}
 }
 
 ostream & operator << (ostream & os, const FormeComposee * f)

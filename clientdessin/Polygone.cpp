@@ -1,5 +1,6 @@
 #include "VisiteurDessiner.h"
 #include "Polygone.h"
+#include "SauvegardeFormeJSON.h"
 
 Polygone::Polygone(const int couleur) : Forme(couleur)
 {
@@ -134,15 +135,27 @@ const string Polygone::encoderFenetre() const
 	return oss.str();
 }
 
+void Polygone::sauvegardeJson() const
+{
+	SauvegarderFormeJSON* test2 = new SauvegarderFormeJSON();
+	test2->visite(this);
+}
+
+const void Polygone::sauvegardePolygone() const
+{
+	SauvegarderFormeJSON* test2 = new SauvegarderFormeJSON();
+
+	for (Segment s : _cotes) {
+		test2->visite(&s);
+	}
+}
+
 void Polygone::dessiner(VisiteurDessiner * visiteurDessiner) const
 {
 	return visiteurDessiner->visite(this);
 
 }
 
-void Polygone::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
-{
-}
 
 ostream & operator << (ostream & os, const Polygone * p)
 {

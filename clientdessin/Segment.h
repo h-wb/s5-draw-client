@@ -25,6 +25,7 @@ public:
 	
 	const string encoderForme() const;
 	const string encoderFenetre() const;
+	void sauvegardeJson() const;
 	
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;	

@@ -1,6 +1,7 @@
 #include "VisiteurDessiner.h"
 #include "SauvegarderFormeTXT.h"
 #include "Rond.h"
+#include "SauvegardeFormeJSON.h"
 
 Rond::Rond(const int couleur, const Vecteur2D centre, const double rayon):Forme(couleur), _centre(centre)
 {
@@ -119,6 +120,12 @@ const string Rond::encoderFenetre() const
 	ostringstream oss;
 	oss << "Rond, " << 0 << ", " << 300 << ", " << 500 << ", " << 500 << "\r\n";
 	return oss.str();
+}
+
+void Rond::sauvegardeJson() const
+{
+	SauvegarderFormeJSON* test2 = new SauvegarderFormeJSON();
+	test2->visite(this);
 }
 
 void Rond::dessiner( VisiteurDessiner * visiteurDessiner) const
