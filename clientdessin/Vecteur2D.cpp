@@ -1,6 +1,8 @@
 
 #include <sstream>
 #include "Vecteur2D.h"
+#define M_PI 3.14159265358979323846
+
 
 Vecteur2D::Vecteur2D(const double & x, const double & y) : _x(x), _y(y)
 {
@@ -84,9 +86,29 @@ Vecteur2D & Vecteur2D::homothetie(const Vecteur2D & point, const double & rappor
 
 Vecteur2D & Vecteur2D::rotation(const Vecteur2D & centre, const double & angle)
 {
-	_x = (int)(centre._x + _x * cos(angle) - centre._y *sin(angle));
-	_y = (int)(centre._x + _x * sin(angle) - centre._y *cos(angle));
-	return *this;
+	double result, result2;
+
+	if ((angle != 90) || (angle != 270)) {
+		result = cos(angle * M_PI / 180.0);
+	}
+	else {
+		result = 0;
+	}
+
+
+	if ((angle != 180) || (angle != 360)) {
+		result2 = sin(angle * M_PI / 180.0);
+	}
+	else {
+		result2 = 0;
+	}
+
+	_x = (int)(result * (_x - centre._x) - result2 * (_y - centre._y)); 
+	_y = (int)(result2 * (_x - centre._x) + result * (_y - centre._y));
+
+		//_x = (int)(centre._x + _x * cos(angle) - centre._y *sin(angle));
+		//_y = (int)(centre._x + _x * sin(angle) - centre._y *cos(angle));
+		return *this;
 }
 
 ostream & operator << (ostream & os, const Vecteur2D & u)
