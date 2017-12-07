@@ -69,6 +69,12 @@
     <ClCompile Include="Connexion.cpp" />
     <ClCompile Include="DessinerJava.cpp" />
     <ClCompile Include="Erreur.cpp" />
+    <ClCompile Include="Expert.cpp" />
+    <ClCompile Include="ExpertChargementFormeComposee.cpp" />
+    <ClCompile Include="ExpertChargementPolygone.cpp" />
+    <ClCompile Include="ExpertChargementRond.cpp" />
+    <ClCompile Include="ExpertChargementSegment.cpp" />
+    <ClCompile Include="ExpertChargementTriangle.cpp" />
     <ClCompile Include="Forme.cpp" />
     <ClCompile Include="FormeComposee.cpp" />
     <ClCompile Include="Polygone.cpp" />
@@ -86,6 +92,12 @@
     <ClInclude Include="Connexion.h" />
     <ClInclude Include="DessinerJava.h" />
     <ClInclude Include="Erreur.h" />
+    <ClInclude Include="Expert.h" />
+    <ClInclude Include="ExpertChargementFormeComposee.h" />
+    <ClInclude Include="ExpertChargementPolygone.h" />
+    <ClInclude Include="ExpertChargementRond.h" />
+    <ClInclude Include="ExpertChargementSegment.h" />
+    <ClInclude Include="ExpertChargementTriangle.h" />
     <ClInclude Include="Forme.h" />
     <ClInclude Include="FormeComposee.h" />
     <ClInclude Include="Polygone.h" />

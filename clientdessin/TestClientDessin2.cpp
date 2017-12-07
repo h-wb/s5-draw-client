@@ -21,6 +21,7 @@ int main()
 try
 {
 /*******************DECLARATION FORMES**************************/
+SauvegarderFormeTXT* test = new SauvegarderFormeTXT();
 Vecteur2D u1(200, 200), u2(300,300), u3(55, 52), u4(25,70), w, v1(40, 40), v3(130,130);
 Vecteur2D t1(100, 100), t2(80, 120), t3(80, 140), t4(100, 160), t5(140, 160), t6(160, 140), t7(160, 120), t8(140,100);
 Rond r(5, u2, 50);
@@ -50,11 +51,11 @@ s.rotation(v3, 10);
 s.dessiner(new DessinerJava);
 cout << &s;*/
 
-/*******************TEST ROND**************************/
+/*******************TEST ROND*************************
 r.dessiner(new DessinerJava);
 cout << &r;
 
-SauvegarderFormeTXT* test = new SauvegarderFormeTXT();
+
 test->visite(&r);
 
 
@@ -69,7 +70,7 @@ cout << &r;
 r.rotation(v3, 180);
 r.dessiner(new DessinerJava);
 cout << &r;
-
+*/
 
 /*******************TEST POLYGONE************************
 p.dessiner(new DessinerJava);
@@ -103,7 +104,7 @@ t.rotation(v3, 180);
 t.dessiner(new DessinerJava);
 cout << &t;*/
 
-/*******************TEST FORME COMPOSEE*************************
+/*******************TEST FORME COMPOSEE**************************/
 f.dessiner(new DessinerJava);
 cout << &f;
 
@@ -111,14 +112,15 @@ f.translation(v1);
 f.dessiner(new DessinerJava);
 cout << &f;
 
-f.homothetie(v1);
+f.homothetie(v1, 2);
 f.dessiner(new DessinerJava);
 cout << &f; 
 
-f.rotation(v1);
+f.rotation(v3, 180);
 f.dessiner(new DessinerJava);
-cout << &f; */
+cout << &f; 
 
+test->visite(&f);
 
 }
 catch(Erreur e)
