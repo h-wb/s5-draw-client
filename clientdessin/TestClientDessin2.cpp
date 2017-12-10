@@ -13,6 +13,7 @@
 #include "Triangle.h"
 #include "FormeComposee.h"
 #include "SauvegarderFormeTXT.h"
+#include "SauvegardeFormeJSON.h"
 #include "ExpertChargementFormeComposee.h"
 #include "ExpertChargementPolygone.h"
 #include "ExpertChargementRond.h"
@@ -26,8 +27,9 @@ try
 {
 /*******************DECLARATION FORMES**************************/
 SauvegarderFormeTXT* sauvegarde = new SauvegarderFormeTXT();
+SauvegarderFormeJSON* sauvegardeJSON = new SauvegarderFormeJSON();
 ifstream fichier("./sauvegarde/sauvegarde.txt");
-Vecteur2D u1(200, 200), u2(300,300), u3(55, 52), u4(25,70), w, v1(40, 40), v3(130,130);
+Vecteur2D u1(200, 200), u2(300,300), u3(55, 52), u4(25,70), w, v1(100, 40), v3(130,130);
 Vecteur2D t1(100, 100), t2(80, 120), t3(80, 140), t4(100, 160), t5(140, 160), t6(160, 140), t7(160, 120), t8(140,100);
 Rond r(5, u2, 50);
 Segment s(2, u1, u2);
@@ -39,12 +41,12 @@ p = p + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8;
 f = f + r + s + t + p;
 
 /*******************EXPERTS**************************/
-ExpertChargementSegment * chargementS = new ExpertChargementSegment(NULL);
+/*ExpertChargementSegment * chargementS = new ExpertChargementSegment(NULL);
 ExpertChargementRond * chargementR = new ExpertChargementRond(chargementS);
 ExpertChargementPolygone * chargementP = new ExpertChargementPolygone(chargementR);
-ExpertChargementFormeComposee * chargementF = new ExpertChargementFormeComposee(chargementP);
+ExpertChargementFormeComposee * chargementF = new ExpertChargementFormeComposee(chargementP);*/
 
-/*******************TEST SEGMENT*************************
+/*******************TEST SEGMENT************************
 s.dessiner(new DessinerJava);
 cout << &s;
 s.translation(v1);
@@ -122,6 +124,13 @@ cout << &f;
 f.rotation(v3, 180);
 f.dessiner(new DessinerJava);
 cout << &f; */
+
+/********************TEST SAUVEGARDE JSON************************
+sauvegardeJSON->visite(&s);
+sauvegardeJSON->visite(&f);
+sauvegardeJSON->visite(&r);
+sauvegardeJSON->visite(&t);
+sauvegardeJSON->visite(&p);
 
 /*******************TEST SAUVEGARDE TEXTE************************
 sauvegarde->visite(&f);

@@ -105,9 +105,6 @@ Vecteur2D & Vecteur2D::rotation(const Vecteur2D & centre, const double & angle)
 
 	_x = (int)(result * (_x - centre._x) - result2 * (_y - centre._y)); 
 	_y = (int)(result2 * (_x - centre._x) + result * (_y - centre._y));
-
-		//_x = (int)(centre._x + _x * cos(angle) - centre._y *sin(angle));
-		//_y = (int)(centre._x + _x * sin(angle) - centre._y *cos(angle));
 		return *this;
 }
 
