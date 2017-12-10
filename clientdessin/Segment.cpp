@@ -2,6 +2,7 @@
 #include <sstream>
 #include "VisiteurDessiner.h"
 #include "Segment.h"
+#include "SauvegardeFormeJSON.h"
 
 
 Segment::Segment(const int couleur, const Vecteur2D & debut, const Vecteur2D & fin) : Forme(couleur), _debut(debut), _fin(fin)
@@ -130,14 +131,17 @@ const string Segment::encoderFenetre() const
 	return oss.str();
 }
 
+void Segment::sauvegardeJson() const
+{
+	SauvegarderFormeJSON* test2 = new SauvegarderFormeJSON();
+	test2->visite(this);
+}
+
 void Segment::dessiner(VisiteurDessiner * visiteurDessiner) const
 {
 	return visiteurDessiner->visite(this);
 }
 
-void Segment::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
-{
-}
 
 ostream & operator << (ostream & os, const Segment * s)
 {

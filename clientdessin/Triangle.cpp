@@ -1,6 +1,12 @@
 #include <sstream>
+#include <fstream>
 #include "Triangle.h"
 #include "VisiteurDessiner.h"
+#include "VisiteurSauvegarde.h"
+#include "SauvegardeFormeJSON.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 Triangle::Triangle(const int couleur, const Vecteur2D & v1, const Vecteur2D & v2, const Vecteur2D & v3) :Polygone(couleur)
 {
@@ -66,15 +72,27 @@ const string Triangle::encoderFenetre() const
 	return oss.str();
 }
 
+void Triangle::sauvegardeJson() const
+{
+	SauvegarderFormeJSON* test2 = new SauvegarderFormeJSON();
+	test2->visite(this);
+}
+
+const void Triangle::sauvegardeTriangle() const
+{
+	SauvegarderFormeJSON* test2 = new SauvegarderFormeJSON();
+	
+	for (Segment s : _cotes) {
+		test2->visite(&s);
+	}
+}
+
 void Triangle::dessiner(VisiteurDessiner * visiteurDessiner) const
 {
 	return visiteurDessiner->visite(this);
 
 }
 
-void Triangle::sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const
-{
-}
 
 ostream & operator << (ostream & os, const Triangle * t)
 {

@@ -98,6 +98,7 @@
     <ClInclude Include="ExpertChargementSegment.h" />
     <ClInclude Include="Forme.h" />
     <ClInclude Include="FormeComposee.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Rond.h" />
     <ClInclude Include="SauvegardeFormeJSON.h" />

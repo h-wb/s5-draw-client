@@ -24,8 +24,8 @@ public:
 
 	const string encoderForme() const;
 	const string encoderFenetre() const;
+	void sauvegardeJson() const;
 
 	void dessiner(VisiteurDessiner * visiteurDessiner) const;
-	//void sauvegarder(VisiteurSauvegarde * visiteurSauvegarde) const;
 	friend ostream & operator << (ostream & os, const Rond * r);
 };
