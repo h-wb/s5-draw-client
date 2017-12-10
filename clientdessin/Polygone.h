@@ -8,7 +8,6 @@ class Polygone : public Forme
 protected:
 	vector<Vecteur2D> _vecteurs;
 	vector<Segment> _cotes;	
-	int _nbCotes;
 public:
 	Polygone(const int couleur);
 	Polygone(const Polygone &p);
@@ -18,8 +17,6 @@ public:
 	virtual void setVecteurs(vector<Vecteur2D> v);
 	virtual vector<Segment> getCotes() const;
 	virtual void setCotes(vector<Segment> s);
-	int getNbCotes() const;
-	void setNbCotes(int);
 
 	Polygone operator=(const Polygone &p);
 	Polygone& operator+=(const Vecteur2D &v);

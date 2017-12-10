@@ -7,19 +7,19 @@ SauvegarderFormeTXT::SauvegarderFormeTXT(){
 
 }
 
-void SauvegarderFormeTXT::sauvegarde(const Forme * forme) const
+void SauvegarderFormeTXT::sauvegarde(const Forme * forme, const string nom) const
 {
 	time_t theTime = time(NULL);
 	struct tm *aTime = localtime(&theTime);
 
 	ostringstream oss;
-	oss << "./sauvegarde/sauvegarde_" << aTime->tm_mday << "-" << aTime->tm_mon + 1 << "_" << aTime->tm_hour << "-" << aTime->tm_min << "-" << aTime->tm_sec << ".txt";
+	oss << "./sauvegarde/" << nom << "_" << aTime->tm_mday << "-" << aTime->tm_mon + 1 << "_" << aTime->tm_hour << "-" << aTime->tm_min << "-" << aTime->tm_sec << ".txt";
 	string str = oss.str();
 	const char* chr = str.c_str();
 
 	ofstream fichier(chr, ios::out | ios::app);
 	if (fichier) {
-		fichier << forme->encoderForme() << "#";
+		fichier << forme->encoderForme();
 		fichier.close();
 	}
 }
@@ -28,25 +28,25 @@ void SauvegarderFormeTXT::sauvegarde(const Forme * forme) const
 
 void SauvegarderFormeTXT::visite(const Rond * forme) const
 {
-	sauvegarde(forme);
+	sauvegarde(forme, "Rond");
 }
 
 void SauvegarderFormeTXT::visite(const Segment * forme) const
 {
-	sauvegarde(forme);
+	sauvegarde(forme, "Segment");
 }
 
 void SauvegarderFormeTXT::visite(const Polygone * forme) const
 {
-	sauvegarde(forme);
+	sauvegarde(forme, "Polygone");
 }
 
 void SauvegarderFormeTXT::visite(const Triangle * forme) const
 {
-	sauvegarde(forme);
+	sauvegarde(forme, "Triangle");
 }
 
 void SauvegarderFormeTXT::visite(const FormeComposee * forme) const
 {
-	sauvegarde(forme);
+	sauvegarde(forme, "Forme_composee");
 }

@@ -1,5 +1,10 @@
 #include "Expert.h"
 
+
+
+
+
+
 Expert::Expert()
 {
 	_suivant = NULL;
@@ -23,3 +28,5 @@ void Expert::setSuivant(Expert * suivant)
 {
 	_suivant = suivant;
 }
+
+

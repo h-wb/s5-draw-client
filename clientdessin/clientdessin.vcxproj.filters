@@ -69,9 +69,6 @@
     <ClCompile Include="ExpertChargementPolygone.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="ExpertChargementTriangle.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="ExpertChargementSegment.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -135,9 +132,6 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="ExpertChargementPolygone.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="ExpertChargementTriangle.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="ExpertChargementSegment.h">

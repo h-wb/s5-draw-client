@@ -8,7 +8,6 @@ Polygone::Polygone(const int couleur) : Forme(couleur)
 
 Polygone::Polygone(const Polygone & p) : Forme(p)
 {
-	_nbCotes = p._nbCotes;
 	_vecteurs = p._vecteurs;
 	_cotes = p._cotes;
 }
@@ -37,16 +36,6 @@ void Polygone::setCotes(vector<Segment> s)
 	_cotes = s;
 }
 
-int Polygone::getNbCotes() const
-{
-	return _nbCotes;
-}
-
-void Polygone::setNbCotes(int nbCotes)
-{
-	_nbCotes = nbCotes;
-}
-
 Polygone Polygone::operator=(const Polygone & p)
 {
 	_vecteurs = p._vecteurs;
@@ -56,19 +45,20 @@ Polygone Polygone::operator=(const Polygone & p)
 
 }
 
-Polygone & Polygone::operator+=(const Vecteur2D & v)
+Polygone& Polygone::operator+=(const Vecteur2D & v)
 {
 	_vecteurs.push_back(v);
 	return *this;
+
 }
 
 Polygone Polygone::operator+(const Vecteur2D & v)
 {
 	Polygone p = Polygone(*this);
-
 	p += v;
 	return p;
 }
+
 
 Forme * Polygone::translation(const Vecteur2D & VectTrans ){
 
@@ -111,10 +101,8 @@ void Polygone::Construction() {
 
 	for (int i = 1; i < _vecteurs.size(); i++) {
 		_cotes.push_back(Segment(getCouleur(), _vecteurs[i - 1], _vecteurs[i]));
-		_nbCotes++;
 	}
 	_cotes.push_back(Segment(getCouleur(), _vecteurs[_vecteurs.size() - 1], _vecteurs[0]));
-	_nbCotes++;
 
 }
 
@@ -130,7 +118,7 @@ const string Polygone::encoderForme() const
 const string Polygone::encoderFenetre() const
 {
 	ostringstream oss;
-	oss << "Polygone, " << 0 << ", " << 0 << ", " << 500 << ", " << 500 << "\r\n";
+	oss << "Polygone," << 0 << "," << 0 << "," << 500 << "," << 500 << "\r\n";
 	return oss.str();
 }
 

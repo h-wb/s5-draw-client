@@ -119,7 +119,7 @@ double Segment::aire() const {
 const string Segment::encoderForme() const
 {
 	ostringstream oss;
-	oss  << "Segment, " << getCouleur() << ", " << getDebut() << ", " << getFin() << "\r\n";
+	oss  << "Segment," << getCouleur() << "," << getDebut() << "," << getFin() << "\r\n";
 	return oss.str();
 }
 

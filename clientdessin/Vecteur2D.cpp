@@ -113,7 +113,7 @@ Vecteur2D & Vecteur2D::rotation(const Vecteur2D & centre, const double & angle)
 
 ostream & operator << (ostream & os, const Vecteur2D & u)
 {
-	os << u._x << ", " << u._y;
+	os << u._x << "," << u._y;
 	return os;
 }
 
